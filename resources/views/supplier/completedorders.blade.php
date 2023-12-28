@@ -7,10 +7,7 @@
         }
     </style>
 
-<x-layout>
-
-
-
+<x-layout active='completedorders'>
 
 <div class="completed-orders-section m-auto  p-sm-5 ">
     <h2 class="text-center">Completed Orders</h2>

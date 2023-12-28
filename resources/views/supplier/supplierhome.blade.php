@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout active='home'>
 
     @auth
         <div class="text-left p-3">
@@ -16,7 +16,6 @@
                         <img src="{{asset('images/neworders.png')}}" class="card-img-top" alt="Card Image">
                         <div class="card-body text-center">
                             <h5 class="card-title">New Orders</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             <a href="/supplier/neworders" class="btn btn-primary bg-black">View</a>
                         </div>
                     </div>
@@ -27,7 +26,6 @@
                         <img src="{{asset('images/neworders.png')}}" class="card-img-top" alt="Card Image">
                         <div class="card-body text-center">
                             <h5 class="card-title">Pending Orders</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             <a href="/supplier/pendingorders" class="btn btn-primary">View</a>
                         </div>
                     </div>
@@ -37,7 +35,6 @@
                         <img src="{{asset('images/neworders.png')}}" class="card-img-top" alt="Card Image">
                         <div class="card-body text-center" >
                             <h5 class="card-title">Completed Orders</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             <a href="/supplier/completedorders" class="btn btn-primary">View</a>
                         </div>
                     </div>

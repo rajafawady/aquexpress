@@ -7,7 +7,7 @@
         }
     </style>
 
-<x-layout>
+<x-layout active='neworders'>
     <section>
 
     <!-- New Orders Section -->

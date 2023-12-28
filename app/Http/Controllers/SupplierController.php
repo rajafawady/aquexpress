@@ -139,15 +139,6 @@ class SupplierController extends Controller
         return view('/supplier/completedorders',['orders'=>$orders]);
     }
 
-    public function stats(Request $request){
-        $selectedMonth = $request->get('month', now()->format('Y-m'));
-        $monthlyOrders = Order::whereYear('time', now()->year)
-            ->whereMonth('time', now()->month)
-            ->get();
-
-        return view('/supplier/stats', compact('monthlyOrders', 'selectedMonth'));
-    }
-
     public function acceptOrder($orderId)
     {
         // Get the currently authenticated supplier
@@ -190,4 +181,27 @@ class SupplierController extends Controller
 
         return redirect()->back()->with('message', 'Invalid order or order already Completed.');
     }
+
+    public function stats(Request $request)
+    {
+        $month = $request->month;
+
+        if (!$month) {
+            $currentDate = new \DateTime();
+            $year = $currentDate->format('Y');
+            $month = $currentDate->format('m');
+        } else {
+            list($year, $month) = explode('-', $month);
+        }
+
+        $supplierId = Auth::guard('supplier')->user()->id;
+        
+        $monthlyOrders = Order::where('supplier_id', $supplierId)
+            ->whereRaw("DATE_FORMAT(time, '%Y-%m') = ?", ["$year-$month"])
+            ->where('status', 'completed')
+            ->get(['time']);
+
+        return view('/supplier/stats', compact('monthlyOrders'));
+    }
+
 }
