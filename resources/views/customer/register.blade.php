@@ -83,7 +83,7 @@
             <div class="d-flex flex-column justify-content-center align-item-center">
                 <div class="p-2 d-flex flex-column text-center">
                     <h6>Already Have an Account?</h6>
-                    <p><a href="/supplier/login">Sign In</a></p>
+                    <p><a href="/login">Sign In</a></p>
                 </div>
             </div>
             
