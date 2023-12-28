@@ -46,6 +46,6 @@ class SupplierController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login')->with('message', 'You have been logged out!');
+        return redirect('/supplier/login')->with('message', 'You have been logged out!');
     }
 }
