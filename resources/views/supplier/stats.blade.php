@@ -3,13 +3,20 @@
     <section>
 
         <div class="container">
-            <h1>Monthly Orders Stats</h1>
+            <h1 class="text-center my-3">Monthly Statistics</h1>
     
-            <form method="GET" action="/supplier/stats">
-                <label for="month">Select Month:</label>
-                <input type="month" id="month" name="month" value="">
-                <button type="submit">Submit</button>
-            </form>
+            <div class="p-3">
+                <form method="GET" action="/supplier/stats">
+                    <div class="form-group" >
+                        <label for="month">Select Month</label>
+                        <input class="form-control" type="month" id="month" name="month" value="{{$selectedMonth}}">
+                    </div>
+                    <div class="row justify-content-end">
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+                    
+                </form>
+            </div>
     
             <canvas id="ordersChart" width="400" height="200"></canvas>
 
@@ -22,39 +29,49 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var labelsData = {!! json_encode(
-        $monthlyOrders->map(function ($order) {
-            $date = new DateTime($order->time);
-            return $date->format('d');
-        })
-    ) !!};
-
-    var ordersData = {!! json_encode($monthlyOrders->pluck('quantity')) !!};
-
-    console.log(labelsData);
-    console.log(ordersData);
-
     var ctx = document.getElementById('ordersChart').getContext('2d');
+
+    // Extract unique dates from the salesData keys
+    var uniqueDates = {!! json_encode(range(1, 31)) !!};
+
+    // Initialize an array with zero sales for each day
+    var salesData = {!! json_encode($salesData->toArray()) !!};
+
     var ordersChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: labelsData,
+            labels: uniqueDates,
             datasets: [{
-                label: 'Orders',
-                data: ordersData,
-                borderColor: 'rgba(75, 192, 192, 1)',
+                label: 'Completed Orders',
+                data: uniqueDates.map(function (date) {
+                    return salesData[date] || 0;
+                }),
+                borderColor: '#352f44',
                 borderWidth: 1,
-                fill: false
+                fill: true
             }]
         },
         options: {
             scales: {
+                x: {
+                    type: 'category',
+                    labels: uniqueDates,
+                    title: {
+                        display: true,
+                        text: 'Dates'
+                    }
+                },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Completed Orders'
+                    }
                 }
             }
         }
     });
-});
 </script>
+
+
+
