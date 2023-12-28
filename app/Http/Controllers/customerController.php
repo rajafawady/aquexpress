@@ -28,17 +28,18 @@ class CustomerController extends BaseController
     }
 
     public function createUser(Request $request){
+        dd($request);
         $formFields=$request->validate(
             [
                 'name'=>'required',
                 'phone'=>'required',
-                'email'=>['required','email', Rule::unique('suppliers', 'email')],
+                'email'=>['required','email', Rule::unique('users', 'email')],
                 'password'=>'required | confirmed | min:6',
                 'address'=>'required',
             ]
             );
 
-            dd($formFields);
+            
             // Hash Password
         $formFields['password'] = bcrypt($formFields['password']);
         // Create User

@@ -5,12 +5,12 @@
     <section class="sign-in-section">
         <div class="sign-up bounce-in-left" id="sign-up">
             <h2 class="text-center">Sign Up</h2>
-            <form method="POST" action="/supplier/registration">
+            <form method="POST" action="/register">
                 @csrf
                 <!-- Company Name -->
                 <div class="form-group">
                     <label for="name">Enter Full Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="name"
+                    <input type="text" class="form-control" id="name" placeholder="Full Name"
                         name="name">
 
                      @error('name')

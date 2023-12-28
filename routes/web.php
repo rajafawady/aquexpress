@@ -56,9 +56,9 @@ Route::get('/', function () {
     return view('/customer/index');
 })->name('customer.home');
 
-Route::get('/ordernow', function () {
-    return view('/customer/index');
-})->name('customer.home');
+Route::get('/orderdetails', function () {
+    return view('/customer/order');
+})->name('customer.order');
 
 
 Route::get('/register', function () {
