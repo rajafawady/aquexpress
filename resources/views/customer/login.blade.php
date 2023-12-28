@@ -24,7 +24,7 @@
                         <input type="password" class="form-control" id="password" placeholder="*******" name="password">
                         <div class="input-group-append">
                             <span class="input-group-text">
-                                <i class="far fa-eye" style="color: black" id="togglePassword"></i>
+                                <i class="far fa-eye" style="color: black" id="togglePassword" onclick="togglePasswordVisibility()"></i>
                             </span>
                         </div>
                          @error('password')
@@ -56,5 +56,21 @@
             </div>
         </div>
       </section>
+      <script>
+                function togglePasswordVisibility() {
+                    var passwordInput = document.getElementById("password");
+                    var toggleIcon = document.getElementById("togglePassword");
+
+                    if (passwordInput.type === "password") {
+                        passwordInput.type = "text";
+                        toggleIcon.classList.remove("far", "fa-eye");
+                        toggleIcon.classList.add("fas", "fa-eye-slash");
+                    } else {
+                        passwordInput.type = "password";
+                        toggleIcon.classList.remove("fas", "fa-eye-slash");
+                        toggleIcon.classList.add("far", "fa-eye");
+                    }
+                }
+</script>
 
 </x-customer-layout>
