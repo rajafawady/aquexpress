@@ -56,11 +56,6 @@ Route::get('/', function () {
     return view('/customer/index');
 })->name('customer.home');
 
-Route::get('/orderdetails', function () {
-    return view('/customer/order');
-})->name('customer.order');
-
-
 Route::get('/register', function () {
     return view('/customer/register');
 });
@@ -71,4 +66,19 @@ Route::get('/login', function () {
     return view('/customer/login');
 });
 
+Route::get('/about', function () {
+    return view('/customer/about');
+});
+
+Route::get('/contact', function () {
+    return view('/customer/contact');
+});
+
 Route::post('/login', [CustomerController::class, 'authenticate']);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/orderdetails', function () {
+        return view('/customer/order');
+    })->name('customer.order');
+    
+});

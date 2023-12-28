@@ -7,7 +7,7 @@
       
         <div class="contact-container">
           <div class="contact-details bounce-in-left">
-            <h2>Contact Us</h2>
+            <h2 class="text-white text-center">Contact Us</h2>
                 <div class="contact-child">
                    <div class="icon-container">
                      <img src="images/placeholder.png"  class="icon" alt="pin">
@@ -34,7 +34,7 @@
             </div>
 
             <div class="contact-form bounce-in-right">
-                <h2>Send Us a Message</h2>
+                <h2 class="text-white text-center">Send Us a Message</h2>
                 <form>
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
@@ -45,7 +45,7 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="4" required></textarea>
     
-                    <button class="btn" type="submit">Send</button>
+                    <button class="btn text-white mt-3" type="submit">Send</button>
                   </form>
             </div>
         </div>

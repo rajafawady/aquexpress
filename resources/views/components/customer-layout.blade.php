@@ -19,7 +19,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #352f44;">
           <div class="container-fluid">
-              <a class="navbar-brand w-25" href="#">
+              <a class="navbar-brand w-25" href="/">
                   <img src="{{asset("/images/logo/transparent_white.png")}}" width="25%" alt="logo">
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -29,16 +29,16 @@
               <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                   <ul class="navbar-nav">
                       <li class="nav-item active">
-                          <a class="nav-link" href="index.html">Home</a>
+                          <a class="nav-link" href="/">Home</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="index.html#features">Features</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="about.html">About Us</a>
+                          <a class="nav-link" href="/about">About Us</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="contact.html">Contact Us</a>
+                          <a class="nav-link" href="/contact">Contact Us</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="index.html#faq">FAQs</a>
@@ -46,7 +46,7 @@
                       
                       
                       @auth
-                      <li class="text-light">Hello, {{auth()->user()->companyName ? auth()->user()->companyName:""}}</li>
+                      <li class="text-light">Hello, {{auth()->user()->name ? auth()->user()->name:""}}</li>
                       @else
                       <li class="nav-item">
                         <a class="nav-link" href="/login">Sign In</a>
@@ -82,10 +82,10 @@
                     <img width="20%" src="{{asset('/images/logo/transparent_white.png')}}" alt="logo">
                 </div>
                 <div class="footer-links d-flex flex-wrap justify-content-center">
-                    <a href="index.html" class="text-white mx-2">Home </a>
+                    <a href="/" class="text-white mx-2">Home </a>
                     <a href="index.html#features" class="text-white mx-2">Features </a>
-                    <a href="about.html" class="text-white mx-2">About Us </a>
-                    <a href="contact.html" class="text-white mx-2">Contact Us </a>
+                    <a href="/about" class="text-white mx-2">About Us </a>
+                    <a href="/contact" class="text-white mx-2">Contact Us </a>
                     <a href="index.html#faq" class="text-white mx-2">FAQ </a>
                     <a href="login.html" class="text-white mx-2">Sign In </a>
                     <a href="register.html" class="text-white mx-2">Register Now </a>

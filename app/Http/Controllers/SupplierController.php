@@ -41,7 +41,7 @@ class SupplierController extends BaseController
         $formFields['password'] = bcrypt($formFields['password']);
         // Create User
         $user = Supplier::create($formFields);
-        Auth::guard('supplier')->attempt($user);
+        Auth::guard('supplier')->login($user);
         return redirect('/supplier')->with('message', 'User created and logged in');
      }
 

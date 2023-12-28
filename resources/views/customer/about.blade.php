@@ -2,7 +2,7 @@
 <x-customer-layout>
   
   <section>
-    <div class="container">
+    <div class="main-container">
         <div class="about-container ">
           <h2>About Us</h2>
             <p>At AquExpress, we are on a mission to redefine the way you access and enjoy clean and safe water. Water scarcity challenges can be daunting, and we believe it's time to make a difference. We are a dedicated team of professionals who are passionate about ensuring that no one ever has to worry about their water supply. Our platform is designed to make water delivery as easy as a few clicks, as dependable as your morning routine, and as customer-centric as it can be. We are committed to taking the responsibility of securing your water needs, ensuring that you have access to fresh water when and where you want it. Join us in this journey towards a future where water scarcity is a thing of the past, and water delivery is a seamless and worry-free experience. Welcome to AquaExpress, where your convenience and well-being are our top priorities.</p>

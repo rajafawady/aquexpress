@@ -21,14 +21,13 @@ class CustomerController extends BaseController
         ]);
         if(Auth::attempt($formFields)){
             $request->session()->regenerate();
-            return redirect('/')->with('message', 'You are logged in as a Supplier!');
+            return redirect('/')->with('message', 'You are logged in as a Customer!');
         }
 
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
     }
 
     public function createUser(Request $request){
-        dd($request);
         $formFields=$request->validate(
             [
                 'name'=>'required',
@@ -44,7 +43,7 @@ class CustomerController extends BaseController
         $formFields['password'] = bcrypt($formFields['password']);
         // Create User
         $user = User::create($formFields);
-        Auth::attempt($user);
+        Auth::login($user);
         return redirect('/')->with('message', 'User created and logged in');
      }
 
