@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="{{asset('styles/register.css')}}">
+
+
+
 <x-layout>
 
     <section class="sign-in-section">

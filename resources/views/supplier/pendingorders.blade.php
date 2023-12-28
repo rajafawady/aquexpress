@@ -6,7 +6,7 @@
     
         }
     </style>
-<x-layout active='pendingorders'>
+<x-layout>
     <!-- Pending Orders Section -->
     <div class="pending-orders-section m-auto  p-sm-5">
             <h2 class="text-center">Pending Orders</h2>

@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{asset('styles/register.css')}}">
 
-<x-layout>
+<x-customer-layout>
 
 
     <section class="sign-in-section">
@@ -51,4 +51,4 @@
         </div>
       </section>
 
-</x-layout>
+</x-customer-layout>

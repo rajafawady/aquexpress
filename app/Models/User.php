@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'address',
+        'card_no',
+        'card_expire_date',
+        'cvc',
     ];
 
     /**

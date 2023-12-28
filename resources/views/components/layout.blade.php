@@ -10,8 +10,14 @@
     <title>AquExpress</title>
     <link rel="shortcut icon" href="images/icon/transparent_white.ico" type="image/x-icon">
     <script src="//unpkg.com/alpinejs" defer></script>
-    <link rel="stylesheet" href="{{asset('styles/register.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <style>
+        .search-btn:hover {
+            background-color: #352f44;
+            color: white;
+    
+        }
+    </style>
     
 
 </head>

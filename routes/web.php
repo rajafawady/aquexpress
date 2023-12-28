@@ -58,3 +58,16 @@ Route::get('/', function () {
 Route::get('/ordernow', function () {
     return view('/customer/index');
 })->name('customer.home');
+
+
+Route::get('/register', function () {
+    return view('/register');
+});
+
+Route::post('/register', [CustomerController::class, 'createUser']);
+
+Route::get('login', function () {
+    return view('/login');
+});
+
+Route::post('/login', [CustmerController::class, 'authenticate']);
