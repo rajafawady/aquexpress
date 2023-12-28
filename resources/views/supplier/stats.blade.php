@@ -22,19 +22,26 @@
 
 
 <script>
+    var labelsData = {!! json_encode(
+        $monthlyOrders->map(function ($order) {
+            $date = new DateTime($order->time);
+            return $date->format('d');
+        })
+    ) !!};
+
+    var ordersData = {!! json_encode($monthlyOrders->pluck('quantity')) !!};
+
+    console.log(labelsData);
+    console.log(ordersData);
+
     var ctx = document.getElementById('ordersChart').getContext('2d');
     var ordersChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: {!! json_encode(
-                $monthlyOrders->map(function ($order) {
-                    $date = new DateTime($order->time);
-                    return $date->format('d');
-                })
-            ) !!},
+            labels: labelsData,
             datasets: [{
                 label: 'Orders',
-                data: {!! json_encode($monthlyOrders->pluck('quantity')) !!},
+                data: ordersData,
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
                 fill: false

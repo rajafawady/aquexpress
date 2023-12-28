@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -12,6 +13,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class CustomerController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+    
     public function authenticate(Request $request){
         $formFields=$request->validate([
             'email'=> ['required','email'],
