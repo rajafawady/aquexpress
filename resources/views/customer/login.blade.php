@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="{{asset('styles/register.css')}}">
+<link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css')}}">
+
 
 <x-customer-layout>
 
@@ -16,16 +18,20 @@
                   <p class="text-danger text-lg mt-1">{{$message}}</p>
                   @enderror
               </div>
-              <label for="password">Password</label>
-              <div class="input-icons">
-                  <input class="input-field w-100" 
-                        type="password"
-                        placeholder="*******" name="password" id="password">
-
-                        @error('password')
+             
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" placeholder="*******" name="password">
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="far fa-eye" style="color: black" id="togglePassword"></i>
+                            </span>
+                        </div>
+                         @error('password')
                         <p class="text-danger text-lg mt-1">{{$message}}</p>
                         @enderror
-              </div>
+                    </div>
+                       
               <div class="center"> 
                 <button class="btn" type="submit" name="sign-in">Sign In</button>
               </div>

@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="{{asset('styles/register.css')}}">
+<link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css')}}">
+
 
 
 
@@ -47,11 +49,18 @@
                         name="address"></textarea>
                 </div>
 
-                <!-- Password -->
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="*******" name="password">
-                </div>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" placeholder="*******" name="password">
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="far fa-eye" style="color: black" id="togglePassword"></i>
+                            </span>
+                        </div>
+                    </div>
+                  </div>
+
 
                 <!-- Confirm Password -->
                 <div class="form-group">
