@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+    <x-customer-layout>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <title>Checkout Page</title>
-</head>
-
-<body>
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-8 order-md-1">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Shipping Information</h4>
                 <form class="needs-validation" novalidate>
                     <div class="row">
@@ -31,7 +21,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="mb-3">
                         <label for="address">Address</label>
                         <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
@@ -39,15 +29,15 @@
                             Please enter your shipping address.
                         </div>
                     </div>
-
+                    
                     <!-- More fields for shipping information can be added here -->
-
+                    
                     <hr class="mb-4">
-
+                    
                     <h4 class="mb-3">Payment</h4>
-
+                    
                     <!-- Payment form goes here -->
-
+                    
                     <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to Checkout</button>
                 </form>
             </div>
@@ -84,9 +74,5 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+    
+</x-customer-layout>
