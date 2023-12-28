@@ -46,20 +46,18 @@
                 </div>
 
                 <!-- Password -->
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <div class="input-group">
-                        <input type="password" class="form-control" id="password" placeholder="*******" name="password">
-                        <div class="input-group-append">
-                            <span class="input-group-text">
-                                <i class="far fa-eye" style="color: black" id="togglePassword"></i>
-                            </span>
-                        </div>
+                            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="password" placeholder="*******" name="password">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="far fa-eye" id="togglePassword" onclick="togglePasswordVisibility('password')"></i>
+                        </span>
                     </div>
-                    @error('password')
-                            <p class="text-danger text-lg mt-1">{{$message}}</p>
-                            @enderror
-                  </div>
+                </div>
+            </div>
+           
 
 
                 <!-- Confirm Password -->
@@ -70,7 +68,7 @@
                         name="password_confirmation">
                         <div class="input-group-append">
                             <span class="input-group-text">
-                                <i class="far fa-eye" style="color: black" id="togglePassword"></i>
+                                <i class="far fa-eye" style="color: black" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPassword')"></i>
                             </span>
                         </div>
                     </div>
@@ -97,6 +95,22 @@
             </div>
 
         </div>
-    </section>
+    </section> 
+    <script>
+    function togglePasswordVisibility(fieldId) {
+        var passwordInput = document.getElementById(fieldId);
+        var toggleIcon = document.getElementById('toggle' + fieldId);
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleIcon.classList.remove('far', 'fa-eye');
+            toggleIcon.classList.add('fas', 'fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            toggleIcon.classList.remove('fas', 'fa-eye-slash');
+            toggleIcon.classList.add('far', 'fa-eye');
+        }
+    }
+</script>
 
 </x-customer-layout>
