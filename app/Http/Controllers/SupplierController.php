@@ -191,20 +191,31 @@ class SupplierController extends BaseController
 
         if (!$month) {
             $currentDate = new \DateTime();
+            $selectedMonth=$currentDate->format('Y-m');
             $year = $currentDate->format('Y');
             $month = $currentDate->format('m');
         } else {
+            $selectedMonth=$month;
             list($year, $month) = explode('-', $month);
         }
 
         $supplierId = Auth::guard('supplier')->user()->id;
-        
+
         $monthlyOrders = Order::where('supplier_id', $supplierId)
             ->whereRaw("DATE_FORMAT(time, '%Y-%m') = ?", ["$year-$month"])
             ->where('status', 'completed')
-            ->get(['time']);
+            ->get(['time', 'quantity']);
 
-        return view('/supplier/stats', compact('monthlyOrders'));
+        $salesData = $monthlyOrders->groupBy(function ($item) {
+            return date_create($item->time)->format('d');
+        })->map(function ($dayOrders) {
+            return $dayOrders->sum('quantity');
+        });
+
+        $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+        $uniqueDates = range(1, $daysInMonth);
+
+        return view('/supplier/stats', compact('salesData', 'uniqueDates','selectedMonth'));
     }
 
 }
