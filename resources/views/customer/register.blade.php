@@ -69,19 +69,17 @@
                 <!-- Confirm Password -->
                 <div class="form-group">
                     <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirmPassword" placeholder="*******"
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="*******"
                         name="password_confirmation">
-
-                    <div class="input-group-append">
+                        <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="far fa-eye" style="color: black" id="togglePassword"></i>
                             </span>
                         </div>
-                        @error('password_confirmation')
-                                <p class="text-danger text-lg mt-1">{{$message}}</p>
-                                @enderror
+                    </div>
                 </div>
-
+                
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary">Sign Up</button>
                 </div>
