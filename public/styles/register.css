@@ -1,0 +1,90 @@
+.sign-in-section{
+  background-image: url("../images/tank.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+.sign-up,.sign-in{
+    background: rgba(255,255,255,0.8);
+    border: 2px solid black ;
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+    padding: 3em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.sign-up button,.sign-in button{
+    margin: auto;
+    margin-top: 1em;
+    width: 10rem;
+    background: #352f44;
+    color: white;
+}
+.input-icons i {
+    position: absolute;
+}
+  
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+  
+.sign-up .icon ,.sign-in .icon {
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    min-width: 50px;
+    text-align: center;
+}
+  
+.input-field {
+    padding: 10px;
+    font-size: 15px;
+}
+
+.hr-lines{
+    position: relative;
+    text-align: center;
+  }
+.hr-lines:before{
+    content:" ";
+    height: 2px;
+    width: 40%;
+    background: rgb(0, 0, 0,0.5);
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+  
+  .hr-lines:after{
+    content:" ";
+    height: 2px;
+    width: 40%;
+    background: rgb(0, 0, 0,0.5);
+    position: absolute;
+    top: 50%;
+    right: 0;
+  }
+
+  .forgot-cont{
+    font-size: 20px;
+  }
+
+  #sign-with-acc{
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+  }
+
+  .sign-in a, .sign-up a{
+    font-size: 18px;
+    font-weight: bold;
+    color: #967bb6;
+  }
+  @media(max-width:500px){
+    .sign-in,.sign-up{
+      width: 70%;
+    }
+  }
+  

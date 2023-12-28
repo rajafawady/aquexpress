@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/supplier', function () {
+    return view('/supplier/supplierhome');
 });
+
+Route::get('/supplier/register', function () {
+    return view('/supplier/supplierRegister');
+});
+
+Route::post('/supplier/registration', [SupplierController::class, 'createUser']);
+
+Route::get('/supplier/login', function () {
+    return view('/supplier/login');
+});
+
+Route::post('/supplier/authenticate', [SupplierController::class, 'authenticate']);
