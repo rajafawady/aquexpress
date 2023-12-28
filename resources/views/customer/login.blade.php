@@ -35,7 +35,7 @@
           <div class="container d-flex flex-column justify-content-between ">
               <div class="my-3 "> 
                   <h6>Don't Have an Account?</h6>
-                  <a href="/supplier/register">Register Now</a>
+                  <a href="/register">Register Now</a>
               </div>
               <div>
                 <a href="">Forgot Your Password?</a> 

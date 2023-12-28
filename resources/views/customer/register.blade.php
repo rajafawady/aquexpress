@@ -1,7 +1,5 @@
 <link rel="stylesheet" href="{{asset('styles/register.css')}}">
-<link rel="stylesheet" href="{{asset('styles/style.css')}}">
 <x-customer-layout>
-
   <section>
     <div class="sign-up bounce-in-left" id="sign-up">
       <h2>Sign Up</h2>

@@ -8,9 +8,12 @@ use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
-
-class SupplierController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+class SupplierController extends BaseController
 {
+    use AuthorizesRequests, ValidatesRequests;
     public function authenticate(Request $request){
         $formFields=$request->validate([
             'email'=> ['required','email'],
