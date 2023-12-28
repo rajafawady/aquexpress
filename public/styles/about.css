@@ -1,0 +1,42 @@
+section{
+    background-image: url("../images/question-mark.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 85vh; 
+    text-align: justify;
+}
+.container{
+    background: rgba(255,255,255,0.8);
+}
+.about-container,.statements-container{
+    width: 70%;
+    margin: auto;
+    padding: 2em;
+}
+p{
+    font-size: 18px;
+}
+.section-one, .section-two{
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+.img{
+    width: 10vw;
+}
+
+@media(max-width:500px){
+    section{
+        background-size: 70vh; 
+    }
+    .section-one{
+        display: flex;
+        flex-direction: column-reverse;
+        
+    }
+    .section-two{
+        display: flex;
+        flex-direction: column;
+        
+    }
+}
