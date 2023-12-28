@@ -18,10 +18,11 @@
     <!--Navbar Start-->
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #352f44;">
-          <div class="container-fluid">
+          <div class="container-fluid justify-content-between align-items-center">
               <a class="navbar-brand w-25" href="#">
                   <img src="{{asset("/images/logo/transparent_white.png")}}" width="25%" alt="logo">
               </a>
+
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                   aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -46,7 +47,10 @@
                       
                       
                       @auth
-                      <li class="text-light">Hello, {{auth()->user()->companyName ? auth()->user()->companyName:""}}</li>
+                    <li class="nav-item border-2 border-white rounded-lg">
+                        <a class="nav-link" href="/supplier/logout">Logout</a>
+                    </li>
+                    
                       @else
                       <li class="nav-item">
                         <a class="nav-link" href="login.html">Sign In</a>

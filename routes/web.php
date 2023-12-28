@@ -14,10 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/supplier', function () {
-    return view('/supplier/supplierhome');
-});
-
+//Supplier Routes
 Route::get('/supplier/register', function () {
     return view('/supplier/supplierRegister');
 });
@@ -29,3 +26,34 @@ Route::get('/supplier/login', function () {
 });
 
 Route::post('/supplier/authenticate', [SupplierController::class, 'authenticate']);
+
+
+Route::middleware(['auth:supplier'])->group(function () {
+    Route::get('/supplier', function () {
+        return view('/supplier/supplierhome');
+    });
+    
+    Route::get('/supplier/logout',[SupplierController::class, 'logout']);
+    
+    Route::get('/supplier/neworders', [SupplierController::class , 'newOrders']);
+    Route::get('/supplier/acceptorder/{order}', [SupplierController::class , 'acceptOrder']);
+    
+    Route::get('/supplier/pendingorders', [SupplierController::class , 'pendingOrders']);
+    
+    Route::get('/supplier/completedorders', [SupplierController::class , 'completedOrders']);
+
+    Route::get('/supplier/stats', [SupplierController::class, 'stats']);
+});
+
+
+//Supplier Routes Ended
+
+
+//Customer Routes
+Route::get('/', function () {
+    return view('/customer/index');
+})->name('customer.home');
+
+Route::get('/ordernow', function () {
+    return view('/customer/index');
+})->name('customer.home');

@@ -11,11 +11,16 @@
 
 <x-layout>
 
-    <Section>
-       
-        <div class="container mt-4 p-5">
-            <div class="row justify-content-around">
+    @auth
+        <div class="text-left p-3">
+        <h4 class="text-dark font-weight-bold" >Hello, {{auth()->guard('supplier')->user()->companyName}}</h4>
+        </div>
+    @endauth
 
+    <Section>
+        <div class="container mt-4 p-5">
+
+            <div class="row justify-content-around">
                 <!-- Bootstrap Card with Shadow and Hover Animation -->
                 <div class="col-sm-3 m-10">
                     <div class="card">
@@ -23,7 +28,7 @@
                         <div class="card-body">
                             <h5 class="card-title">New Orders</h5>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <a href="#" class="btn btn-primary bg-black">View</a>
+                            <a href="/supplier/neworders" class="btn btn-primary bg-black">View</a>
                         </div>
                     </div>
                 </div>
@@ -34,7 +39,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Pending Orders</h5>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <a href="#" class="btn btn-primary">View</a>
+                            <a href="/supplier/pendingorders" class="btn btn-primary">View</a>
                         </div>
                     </div>
                 </div>
@@ -44,7 +49,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Completed Orders</h5>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <a href="#" class="btn btn-primary">View</a>
+                            <a href="/supplier/completedorders" class="btn btn-primary">View</a>
                         </div>
                     </div>
                 </div>

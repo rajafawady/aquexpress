@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Order;
 
 
 class Supplier extends Authenticatable
@@ -17,4 +18,9 @@ class Supplier extends Authenticatable
     protected $fillable = [
         'companyName', 'phone', 'password', 'email', 'address', 'cnic_front', 'cnic_back',
     ];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

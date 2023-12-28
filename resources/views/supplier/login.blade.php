@@ -7,15 +7,23 @@
           <h2>Sign In</h2>
             <form method="POST" action="/supplier/authenticate">
               @csrf
-              <label for="email">Phone No.</label>
+              <label for="email">Email</label>
               <div class="input-icons">
                   <input class="input-field w-100" type="text" placeholder="xyz@domain.com" id="email" name="email">
+
+                  @error('email')
+                  <p class="text-danger text-lg mt-1">{{$message}}</p>
+                  @enderror
               </div>
               <label for="password">Password</label>
               <div class="input-icons">
                   <input class="input-field w-100" 
                         type="password"
                         placeholder="*******" name="password" id="password">
+
+                        @error('password')
+                        <p class="text-danger text-lg mt-1">{{$message}}</p>
+                        @enderror
               </div>
               <div class="center"> 
                 <button class="btn" type="submit" name="sign-in">Sign In</button>
