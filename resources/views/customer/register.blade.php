@@ -12,36 +12,38 @@
                     <label for="name">Enter Full Name</label>
                     <input type="text" class="form-control" id="name" placeholder="name"
                         name="name">
-                </div>
-                @error('name')
+
+                     @error('name')
                         <p class="text-danger text-lg mt-1">{{$message}}</p>
                 @enderror
+                </div>
+               
 
                 <!-- Phone Number -->
                 <div class="form-group">
                     <label for="phone">Phone No.</label>
                     <input type="text" class="form-control" placeholder="+923XXXXXXXXX" id="phone" name="phone">
+                    @error('phone')
+                      <p class="text-danger text-lg mt-1">{{$message}}</p>
+                    @enderror
                 </div>
-                @error('phone')
-                  <p class="text-danger text-lg mt-1">{{$message}}</p>
-                @enderror
                 <!-- Email  -->
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="text" class="form-control" placeholder="xyz@domain.com" id="email" name="email">
+                    @error('email')
+                            <p class="text-danger text-lg mt-1">{{$message}}</p>
+                            @enderror
                 </div>
-                @error('email')
-                        <p class="text-danger text-lg mt-1">{{$message}}</p>
-                        @enderror
                 <!-- Address -->
                 <div class="form-group">
                     <label for="address">Address</label>
                     <textarea class="form-control" id="address" rows="3" placeholder="Enter Address"
                         name="address"></textarea>
+                        @error('address')
+                                <p class="text-danger text-lg mt-1">{{$message}}</p>
+                                @enderror
                 </div>
-                @error('address')
-                        <p class="text-danger text-lg mt-1">{{$message}}</p>
-                        @enderror
 
                 <!-- Password -->
                 <div class="form-group">
@@ -54,19 +56,26 @@
                             </span>
                         </div>
                     </div>
+                    @error('password')
+                            <p class="text-danger text-lg mt-1">{{$message}}</p>
+                            @enderror
                   </div>
 
-                @error('password')
-                        <p class="text-danger text-lg mt-1">{{$message}}</p>
-                        @enderror
 
                 <!-- Confirm Password -->
                 <div class="form-group">
                     <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirmPassword" placeholder="*******"
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="*******"
                         name="password_confirmation">
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="far fa-eye" style="color: black" id="togglePassword"></i>
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                
+
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary">Sign Up</button>
                 </div>
