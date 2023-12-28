@@ -5,13 +5,6 @@
             color: white;
 
         }
-         .card{
-            transition: ease-in-out 1s;
-        }
-        .card:hover{
-            transform: scale(1.1);
-            box-shadow: 10px 10px 5px #9187aa;
-        }
     </style>
 
 <x-layout>
@@ -21,11 +14,13 @@
 
 <div class="completed-orders-section m-auto  p-sm-5 ">
     <h2 class="text-center">Completed Orders</h2>
-    <div class="input-group w-25  m-auto">
-        <input type="search" class="form-control rounded" placeholder="Search by Customer, Payment Method, Amount, Quantity or Address" aria-label="Search"
-            aria-describedby="search-addon" />
-        <button type="button" class="btn search-btn" >search</button>
-    </div>
+    
+    <form action="/supplier/completedorders" method="GET">
+        <div class="input-group w-75 m-auto">
+            <input type="search" class="form-control rounded" name="search" placeholder="Search by Customer, Payment Method, Amount, Quantity or Address" aria-label="Search" aria-describedby="search-addon" />
+            <button type="submit" class="btn search-btn">Search</button>
+        </div>
+    </form>
     <!-- Order Card -->
     <div class="listing-completed-order d-flex flex-row justify-content-center align-items-center flex-wrap m-5">
 

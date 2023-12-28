@@ -29,24 +29,23 @@
               </button>
               <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                   <ul class="navbar-nav">
+                    @auth
                       <li class="nav-item active">
-                          <a class="nav-link" href="index.html">Home</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="index.html#features">Features</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="about.html">About Us</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="contact.html">Contact Us</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="index.html#faq">FAQs</a>
+                          <a class="nav-link" href="/supplier">Home</a>
                       </li>
                       
                       
-                      @auth
+                      <li class="nav-item">
+                          <a class="nav-link" href="/supplier/neworders">New Orders</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/supplier/pendingorders">Pending Orders</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/supplier/completedorders">Completed Orders</a>
+                      </li>                      
+                      
+                      
                     <li class="nav-item border-2 border-white rounded-lg">
                         <a class="nav-link" href="/supplier/logout">Logout</a>
                     </li>

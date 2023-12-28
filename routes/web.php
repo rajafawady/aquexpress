@@ -41,6 +41,7 @@ Route::middleware(['auth:supplier'])->group(function () {
     Route::get('/supplier/pendingorders', [SupplierController::class , 'pendingOrders']);
     
     Route::get('/supplier/completedorders', [SupplierController::class , 'completedOrders']);
+    Route::get('/supplier/completeorder/{order}', [SupplierController::class , 'completeOrder']);
 
     Route::get('/supplier/stats', [SupplierController::class, 'stats']);
 });

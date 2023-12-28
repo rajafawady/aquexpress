@@ -170,4 +170,24 @@ class SupplierController extends Controller
 
         return redirect()->back()->with('message', 'Invalid order or order already accepted.');
     }
+
+    public function completeOrder($orderId)
+    {
+
+        // Find the order by its ID
+        $order = Order::find($orderId);
+       
+        // Check if the order exists and is not already accepted
+        if ($order && strtolower($order->status) === 'pending') {
+            // Update the order with the supplier_id
+            $order->update([
+                'status' => 'completed', // Adjust the status based on your needs
+            ]);
+            // Additional logic, e.g., send notifications, update inventory, etc.
+
+            return redirect()->back()->with('message', 'Order Completed successfully.');
+        }
+
+        return redirect()->back()->with('message', 'Invalid order or order already Completed.');
+    }
 }

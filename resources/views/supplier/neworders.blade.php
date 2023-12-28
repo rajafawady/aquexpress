@@ -5,13 +5,6 @@
             color: white;
     
         }
-          .card{
-            transition: ease-in-out 1s;
-        }
-        .card:hover{
-            transform: scale(1.1);
-            box-shadow: 10px 10px 5px #9187aa;
-        }
     </style>
 
 <x-layout>
@@ -22,7 +15,7 @@
     
         <h2 class="text-center">New Orders</h2>
         <form action="/supplier/neworders" method="GET">
-            <div class="input-group">
+            <div class="input-group w-75 m-auto">
                 <input type="search" class="form-control rounded" name="search" placeholder="Search by Customer, Payment Method, Amount, Quantity or Address" aria-label="Search" aria-describedby="search-addon" />
                 <button type="submit" class="btn search-btn">Search</button>
             </div>
