@@ -6,7 +6,7 @@
     <section class="sign-in-section">
       <div class="sign-in bounce-in-right text-center" id="sign-in">
           <h2>Sign In</h2>
-            <form method="POST" action="/supplier/authenticate">
+            <form method="POST" action="/login">
               @csrf
               <label for="email">Email</label>
               <div class="input-icons">

@@ -49,10 +49,10 @@
                       <li class="text-light">Hello, {{auth()->user()->companyName ? auth()->user()->companyName:""}}</li>
                       @else
                       <li class="nav-item">
-                        <a class="nav-link" href="login.html">Sign In</a>
+                        <a class="nav-link" href="/login">Sign In</a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="register-anchor nav-link text-white" href="register.html">
+                        <li class="nav-item">
+                            <a class="register-anchor nav-link text-white" href="/register">
                                 Register Now
                             </a>
                         </li>

@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,13 +62,13 @@ Route::get('/ordernow', function () {
 
 
 Route::get('/register', function () {
-    return view('/register');
+    return view('/customer/register');
 });
 
 Route::post('/register', [CustomerController::class, 'createUser']);
 
-Route::get('login', function () {
-    return view('/login');
+Route::get('/login', function () {
+    return view('/customer/login');
 });
 
-Route::post('/login', [CustmerController::class, 'authenticate']);
+Route::post('/login', [CustomerController::class, 'authenticate']);
