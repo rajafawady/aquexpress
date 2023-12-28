@@ -20,8 +20,9 @@
 
 </x-layout>
 
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+document.addEventListener('DOMContentLoaded', function() {
     var labelsData = {!! json_encode(
         $monthlyOrders->map(function ($order) {
             $date = new DateTime($order->time);
@@ -55,4 +56,5 @@
             }
         }
     });
+});
 </script>
