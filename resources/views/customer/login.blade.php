@@ -6,7 +6,7 @@
     <section class="sign-in-section">
       <div class="sign-in bounce-in-right text-center" id="sign-in">
           <h2>Sign In</h2>
-            <form method="POST" action="/supplier/authenticate">
+            <form method="POST" action="/login">
               @csrf
               <label for="email">Email</label>
               <div class="input-icons">
@@ -35,7 +35,7 @@
           <div class="container d-flex flex-column justify-content-between ">
               <div class="my-3 "> 
                   <h6>Don't Have an Account?</h6>
-                  <a href="/supplier/register">Register Now</a>
+                  <a href="/register">Register Now</a>
               </div>
               <div>
                 <a href="">Forgot Your Password?</a> 
