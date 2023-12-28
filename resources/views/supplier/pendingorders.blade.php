@@ -1,11 +1,4 @@
 
-    <style>
-        .search-btn:hover {
-            background-color: #352f44;
-            color: white;
-    
-        }
-    </style>
 <x-layout>
     <!-- Pending Orders Section -->
     <div class="pending-orders-section m-auto  p-sm-5">
