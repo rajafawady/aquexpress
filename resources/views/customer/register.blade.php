@@ -1,9 +1,5 @@
 <link rel="stylesheet" href="{{asset('styles/register.css')}}">
 
-
-
-
-
 <x-customer-layout>
 
     <section class="sign-in-section">
@@ -27,8 +23,8 @@
                     <input type="text" class="form-control" placeholder="+923XXXXXXXXX" id="phone" name="phone">
                 </div>
                 @error('phone')
-                        <p class="text-danger text-lg mt-1">{{$message}}</p>
-                        @enderror
+                  <p class="text-danger text-lg mt-1">{{$message}}</p>
+                @enderror
                 <!-- Email  -->
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -70,10 +66,7 @@
                     <input type="password" class="form-control" id="confirmPassword" placeholder="*******"
                         name="password_confirmation">
                 </div>
-                @error('password_confirmation')
-                        <p class="text-danger text-lg mt-1">{{$message}}</p>
-                        @enderror
-
+                
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary">Sign Up</button>
                 </div>

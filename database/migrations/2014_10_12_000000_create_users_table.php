@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone');
             $table->string('address');
-            $table->string('card_no');
-            $table->string('card_expire_date');
-            $table->string('cvc');
+            $table->string('card_no')->nullable();
+            $table->string('card_expire_date')->nullable();
+            $table->string('cvc')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

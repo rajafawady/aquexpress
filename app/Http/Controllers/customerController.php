@@ -37,6 +37,8 @@ class CustomerController extends BaseController
                 'address'=>'required',
             ]
             );
+
+            dd($formFields);
             // Hash Password
         $formFields['password'] = bcrypt($formFields['password']);
         // Create User
