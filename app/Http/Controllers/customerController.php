@@ -30,7 +30,7 @@ class CustomerController extends BaseController
     public function createUser(Request $request){
         $formFields=$request->validate(
             [
-                'companyName'=>'required',
+                'name'=>'required',
                 'phone'=>'required',
                 'email'=>['required','email', Rule::unique('suppliers', 'email')],
                 'password'=>'required | confirmed | min:6',

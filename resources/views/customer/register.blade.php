@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="{{asset('styles/register.css')}}">
+<link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css')}}">
+
 
 
 
@@ -15,29 +17,52 @@
                     <input type="text" class="form-control" id="name" placeholder="name"
                         name="name">
                 </div>
+                @error('name')
+                        <p class="text-danger text-lg mt-1">{{$message}}</p>
+                @enderror
 
                 <!-- Phone Number -->
                 <div class="form-group">
                     <label for="phone">Phone No.</label>
                     <input type="text" class="form-control" placeholder="+923XXXXXXXXX" id="phone" name="phone">
                 </div>
+                @error('phone')
+                        <p class="text-danger text-lg mt-1">{{$message}}</p>
+                        @enderror
                 <!-- Email  -->
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="text" class="form-control" placeholder="xyz@domain.com" id="email" name="email">
                 </div>
+                @error('email')
+                        <p class="text-danger text-lg mt-1">{{$message}}</p>
+                        @enderror
                 <!-- Address -->
                 <div class="form-group">
                     <label for="address">Address</label>
                     <textarea class="form-control" id="address" rows="3" placeholder="Enter Address"
                         name="address"></textarea>
                 </div>
+                @error('address')
+                        <p class="text-danger text-lg mt-1">{{$message}}</p>
+                        @enderror
 
                 <!-- Password -->
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="*******" name="password">
-                </div>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" placeholder="*******" name="password">
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="far fa-eye" style="color: black" id="togglePassword"></i>
+                            </span>
+                        </div>
+                    </div>
+                  </div>
+
+                @error('password')
+                        <p class="text-danger text-lg mt-1">{{$message}}</p>
+                        @enderror
 
                 <!-- Confirm Password -->
                 <div class="form-group">
@@ -45,10 +70,14 @@
                     <input type="password" class="form-control" id="confirmPassword" placeholder="*******"
                         name="password_confirmation">
                 </div>
+                @error('password_confirmation')
+                        <p class="text-danger text-lg mt-1">{{$message}}</p>
+                        @enderror
 
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary">Sign Up</button>
                 </div>
+                
             </form>
 
             <div class="d-flex flex-column justify-content-center align-item-center">
