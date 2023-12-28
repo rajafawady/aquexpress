@@ -7,7 +7,7 @@
     <title>AquExpress</title>
     <link rel="shortcut icon" href="images/icon/transparent_white.ico" type="image/x-icon">
     <script src="//unpkg.com/alpinejs" defer></script>
-
+    <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     
 
