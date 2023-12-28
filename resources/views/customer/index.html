@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquExpress</title>
+    <link rel="stylesheet" href="styles/style.css">
+ 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+
+    <!--Navbar Start-->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #352f44;">
+        <a class="navbar-brand" href="#">
+          <img src="images/logo/transparent_white.png" width="25%" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#faq">FAQs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Sign In</a>
+            </li>
+            <li class="nav-item ">
+    
+              <a class="register-anchor nav-link text-white" href="register.html">
+                Register Now
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!--Navbar End-->
+    <Section>
+        <!--Hero Section Start-->
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="iphone-container bounce-in-left">
+                  <img src="images/splash.png" alt="">
+                </div>
+                <div class="bounce-in-right">
+                  <div class="hero-text">
+                      <h1 class="white center">Out Of Water?</h1>
+                      <p class="white"><strong class="AquExpress">AquExpress</strong> Will Get It Delivered Whenever You Want</p>
+                  </div>
+                  <div class="flex-col">
+                    <p class="center white">Download Our App and Get Tanked On Time</p>
+                    <div class="download-icons flex">
+                      <a href="#"><img src="images/ios.png" alt=""></a>
+                      <a href="#"><img src="images/android.png" alt=""></a>
+                    </div> 
+                  </div>
+              </div>
+            </div>    
+            
+        </div>
+        <!--Hero Section End-->
+
+
+        <!--Book Now Starts-->
+        <div>
+          <div class="book-heading text-center">
+            <h2>Your Time, Your Choice, Book and Rejoice</h2>
+            <hr>
+                  <div class="order-btn d-flex col-10 justify-content-end mt-5" role="group" aria-label="Order Buttons" >
+                    <button type="button" class="btn text-white mr-3" id="orderNowBtn">Order Now</button>
+                    <button type="button" class="btn  text-white mr-3" id="scheduleOrderBtn">Schedule Your Order</button>
+                  </div>
+
+          </div>
+          <div class="form-container" id="order-form">
+              <form class="form">
+                <div class="form-group">
+                  <label for="quantity">Quantity</label>
+                  <Select id="quantity">
+                    <option value="Full">Half Tank</option>
+                    <option value="Full">Full Tank</option>
+                  </Select>
+                </div>
+                <div class="form-group">
+                  <label for="time">Time</label>
+                  <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                  <label for="date">Date</label>
+                  <input type="date" id="date" name="date" required>
+                </div>
+                <div class="right">
+                  <button class="submit-button btn text-white" type="submit">Book Your Tank</button>
+                </div>
+                
+              </form>
+            </div>
+          </div>
+          <script>
+           
+            document.getElementById('orderNowBtn').addEventListener('click', function () {
+              var orderNowForm=`<form class="form">
+                <div class="form-group">
+                  <label for="quantity">Quantity</label>
+                  <Select id="quantity">
+                    <option value="Full">Half Tank</option>
+                    <option value="Full">Full Tank</option>
+                  </Select>
+                </div>
+                <div class="right">
+                  <button class="submit-button btn text-white" type="submit">Book Your Tank</button>
+                </div>
+                
+              </form>`;
+              document.getElementById("order-form").innerHTML=orderNowForm
+
+            });
+
+            document.getElementById('scheduleOrderBtn').addEventListener('click', function () {
+              var scheduleOrderForm = `<form class="form">
+                <div class="form-group">
+                  <label for="quantity">Quantity</label>
+                  <Select id="quantity">
+                    <option value="Full">Half Tank</option>
+                    <option value="Full">Full Tank</option>
+                  </Select>
+                </div>
+                <div class="form-group">
+                  <label for="time">Time</label>
+                  <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                  <label for="date">Date</label>
+                  <input type="date" id="date" name="date" required>
+                </div>
+                <div class="right">
+                  <button class="submit-button btn text-white" type="submit">Book Your Tank</button>
+                </div>
+                
+              </form>`;
+              document.getElementById('order-form').innerHTML=scheduleOrderForm;
+            });
+          </script>
+
+
+        <!--Book Now Ends-->
+
+        <!--Features Start-->
+<div class="features" id="features">
+  <div id="demo-wrapper" class="text-center">
+    <h2>What We Offer?</h2>
+    <hr>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 service text-center">
+          <img src="images/quick.png" width="40%" alt="">
+          <h3>Quick Orders</h3>
+          <p>Schedule water deliveries at your convenience, specify quantities, and choose preferred payment methods
+            within seconds.</p>
+        </div>
+
+        <div class="col-md-3 service text-center">
+          <img src="images/magic-wand.png" width="40%" alt="">
+          <h3>Auto Ordering</h3>
+          <p>Set up automatic, hassle-free water deliveries at intervals (weekly, bi-weekly, monthly), whatever suits
+            you.</p>
+        </div>
+
+        <div class="col-md-3 service text-center">
+          <img src="images/delivery.png" width="40%" alt="">
+          <h3>Real-Time Tracking</h3>
+          <p>Monitor your order's status throughout delivery with timely updates for a transparent and worry-free
+            experience.</p>
+        </div>
+
+        <div class="col-md-3 service text-center">
+          <img src="images/color-wheel.png" width="40%" alt="">
+          <h3>Supplier Variety</h3>
+          <p>Choose from a diverse network of water suppliers based on reliability, pricing, and delivery speed to meet
+            your preferences and needs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Features End -->
+
+        <!--Commitment Container Starts-->
+      <div class="container mt-5">
+        <h2 class="text-center mb-4">Our Commitment To You</h2>
+        <hr class="mb-4">
+      
+        <div class="row commitment-container p-4">
+          <div class="d-flex justify-content-between align-items-center commitment">
+            <div class="commitment-content w-50  animate__animated animate__bounceInLeft">
+              <h3>Reliable Deliveries</h3>
+              <p>We take the responsibility of ensuring that your water orders are delivered on time and as scheduled, so you
+                can always count on a reliable supply.</p>
+            </div>
+            <img class="handshake animate__animated animate__bounceInRight"  width="15%" src="images/handshake.png" alt="">
+          </div>
+      
+          <div class="d-flex justify-content-between align-items-center commitment">
+            <img class="handshake animate__animated animate__bounceInLeft" width="15%" src="images/target.png" alt="">
+            <div class="commitment-content w-50  text-md-right animate__animated animate__bounceInRight">
+              <h3>Customer-Centric</h3>
+              <p>Your satisfaction is our utmost priority, and we are committed to resolving any issues promptly, making sure
+                your experience with us is hassle-free and convenient.</p>
+            </div>
+          </div>
+      
+          <div class="d-flex justify-content-between align-items-center commitment">
+            
+            <div class="commitment-content w-50 animate__animated animate__bounceInLeft">
+              <h3>Dedicated Support</h3>
+              <p>Our dedicated support team is here to assist you at every step. You can rely on us for any questions or
+                concerns you may have, and we're always ready to provide the assistance you need.</p>
+            </div>
+            <img class="handshake animate__animated animate__bounceInRight" width="15%" src="images/customer-service.png" alt="">
+          </div>
+        </div>
+      </div>
+
+        <!--Commitment Container ends-->
+
+        <!--Locations Container Starts-->
+        <div class="">
+          <h2 class="center heading">From Here To There, We Got You Covered</h2>
+          <hr>
+          <div class="map-container center">
+            <p>We're serving in more than 20 areas at Islamabad and Rawalpindi</p>
+            <img src="images/map.png" alt="">
+          </div>
+        </div>
+        <!--Locations Container Ends-->
+
+        <!--FAQs Start-->
+        <div>
+          <h2 class="center">Frequently Asked Questions</h2>
+          <hr>
+        </div>
+        <div class="main-container">
+          <div class="box">
+            <img src="images/illustration-box-desktop.svg">
+          </div>
+          <div class="woman-img">
+            <img class="mob-img" src="images/illustration-woman-online-mobile.svg">
+            <img class="desk-img" src="images/illustration-woman-online-desktop.svg">
+          </div>
+      
+          <div class="faq" id="faq">
+            <div class="items">
+              <div class="item" id="q1">
+                <a class="item-link" href="#q1">How do I place an order for water delivery?
+                  <i class="arrow"><img src="images/icon-arrow-down.svg" alt=""></i>
+                </a>
+                <div class="answer">
+                  <p>To place an order, simply download the app or use our web version, log in to your AquExpress account, select your preferred delivery time and quantity, and choose a payment method. It's quick and easy!</p>
+                </div>
+              </div>
+      
+              <div class="item" id="q2">
+                <a class="item-link" href="#q2">Can I track my order in real-time?
+                  <i class="arrow"><img src="images/icon-arrow-down.svg" alt=""></i></a>
+                <div class="answer">
+                  <p>Yes, you can! AquExpress offers real-time order tracking. You'll receive updates at every stage of the delivery process, from order confirmation to delivery completion.</p>
+                </div>
+              </div>
+      
+              <div class="item" id="q3">
+                <a class="item-link" href="#q3">How do I reset my password?
+                  <i class="arrow"><img src="images/icon-arrow-down.svg" alt=""></i></a>
+                <div class="answer">
+                  <p>Click “Forgot password” from the login page or “Change password” from your profile page.
+                    A reset link will be emailed to you.</p>
+                </div>
+              </div>
+      
+              <div class="item" id="q4">
+                <a class="item-link" href="#q4">What is the advantage of automatic ordering?
+                  <i class="arrow"><img src="images/icon-arrow-down.svg" alt=""></i></a>
+                <div class="answer">
+                  <p>Automatic ordering lets you set up recurring deliveries based on your schedule, whether it's weekly, bi-weekly, or monthly. This ensures a hassle-free and uninterrupted water supply without the need for manual ordering.</p>
+                </div>
+              </div>
+
+              <div class="item" id="q5">
+                <a class="item-link" href="#q5">How do I choose a water supplier?
+                  <i class="arrow"><img src="images/icon-arrow-down.svg" alt=""></i></a>
+                <div class="answer">
+                  <p>AquaExpress provides a variety of water suppliers. From mobile app you can choose based on factors such as reliability, pricing, and delivery speed. Our extensive supplier network empowers you to make informed choices.</p>
+                </div>
+              </div>
+      
+              <div class="item" id="q6">
+                <a class="item-link" href="#q6">What if I have questions or issues with my order?
+                  <i class="arrow"><img src="images/icon-arrow-down.svg" alt=""></i></a>
+                <div class="answer">
+                  <p>We're here to help! Our dedicated support team is ready to assist you. You can reach out to us for any questions, concerns, or assistance you may need during your AquaExpress experience.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <!--FAQs End-->
+
+
+
+    </Section>
+
+  <!-- Footer Start -->
+  <footer class="footer-distributed" style="background-color: #352f44;">
+  
+    <div class="container pt-5">
+  
+      <div class="row">
+        <!-- Footer Left -->
+        <div class="col-sm-7">
+          <div class="logo">
+            <img width="100px" height="60px" src="images/logo/transparent_white.png" alt="logo">
+          </div>
+          <div class="footer-links d-flex flex-wrap justify-content-center">
+            <a href="index.html" class="text-white mx-2">Home </a>
+            <a href="index.html#features" class="text-white mx-2">Features </a>
+            <a href="about.html" class="text-white mx-2">About Us </a>
+            <a href="contact.html" class="text-white mx-2">Contact Us </a>
+            <a href="index.html#faq" class="text-white mx-2">FAQ </a>
+            <a href="login.html" class="text-white mx-2">Sign In </a>
+            <a href="register.html" class="text-white mx-2">Register Now </a>
+          </div>
+        </div>
+  
+        <!-- Footer Center -->
+        <div class="col-md-3">
+          <div class="footer-contact text-white">
+            <img src="images/placeholder.png" class="icon p-2" alt="">
+            <p><span>Razi Hostel Block 2,</span> Nust, H12 Islamabad</p>
+          </div>
+  
+          <div class="footer-contact text-white">
+            <img src="images/telephone.png" class="icon p-2" alt="">
+            <p>+92-322-8872242</p>
+          </div>
+  
+          <div class="footer-contact">
+            <img src="images/email.png" class="icon p-2" alt="">
+            <p><a href="mailto:rajafawady@gmail.com" class="text-white">support@aquexpress.com</a></p>
+          </div>
+        </div>
+  
+        <!-- Footer Right -->
+        <div class="col-md-12 text-center">
+          <p class="footer-company-about text-white">
+            <span style="font-size: larger;"><strong>About the company</strong></span><br>
+            Our user-friendly platform offers hassle-free water delivery, designed for simplicity and
+            efficiency.
+            With personalized branding and a commitment to reliability, we're dedicated to taking responsibility
+            for
+            your water needs.
+          </p>
+  
+          <div class="footer-icons d-flex justify-content-center">
+            <a href="#"><img class="social-icon" src="images/linkedin.png" alt=""></a>
+            <a href="#"><img class="social-icon" src="images/facebook.png" alt=""></a>
+            <a href="#"><img class="social-icon" src="images/instagram.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+  
+  
+  
+      <!-- Copyrights -->
+      <div class="row m-2">
+        <div class="col-12 text-center">
+          <p class="footer-company-name text-white">AquExpress &copy; 2023</p>
+        </div>
+      </div>
+    </div>
+  
+  </footer>
+  <!-- Footer ends -->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
+
+
+<!--<a href="https://www.flaticon.com/free-icons/quick" title="quick icons">Quick icons created by Freepik - Flaticon</a>    -->
