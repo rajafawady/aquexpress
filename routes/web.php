@@ -58,7 +58,12 @@ Route::get('/about', [CustomerController::class, 'about']);
 Route::get('/contact', [CustomerController::class, 'contact']);
 
 Route::middleware(['auth:web'])->group(function () {
-    
+    //Routes for profile
+    Route::get('/profile', [CustomerController::class, 'showProfile']);
+    Route::get('/profile/edit', [CustomerController::class, 'showEditProfileForm']);
+    Route::post('/profile/delete', [CustomerController::class, 'deleteProfile']);
+
+
     //Customer Logout
     Route::get('/logout', [CustomerController::class, 'logout']);
     // Auto Ordering Routes
@@ -70,4 +75,5 @@ Route::middleware(['auth:web'])->group(function () {
 
     // Route for Checkout
     Route::post('/checkout', [CustomerController::class, 'checkout']);
+
 });
