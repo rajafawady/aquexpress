@@ -61,6 +61,7 @@ Route::middleware(['auth:web'])->group(function () {
     //Routes for profile
     Route::get('/profile', [CustomerController::class, 'showProfile']);
     Route::get('/profile/edit', [CustomerController::class, 'showEditProfileForm']);
+    Route::post('/profile/edit', [CustomerController::class, 'updateProfile']);
     Route::post('/profile/delete', [CustomerController::class, 'deleteProfile']);
 
 

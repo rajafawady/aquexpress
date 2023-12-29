@@ -193,6 +193,7 @@ class CustomerController extends BaseController
                     'email'=>['required','email', Rule::unique('users', 'email')],
                     'password'=>'required | confirmed | min:6',
                     'address'=>'required',
+                    'picture'=>''
                 ]
                 );
             // Get the currently authenticated user
@@ -202,7 +203,7 @@ class CustomerController extends BaseController
             $user->update($formFields);
 
             // Redirect to the profile page with a success message
-            return redirect()->route('/profile')->with('success', 'Profile updated successfully!');
+            return redirect()->route('/profile')->with('message', 'Profile updated successfully!');
         }
 
 
