@@ -1,9 +1,8 @@
-<x-customer-layout active="profile">
-
+<x-layout active="supplierProfile">
     <div class="container mt-5">
         <div class="card">
             <div class="card-header text-white" style="background-color: #352f44;">
-                <h2>User Profile</h2>
+                <h2>Supplier Profile</h2>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -11,7 +10,7 @@
                         <img id="profileImage" src="https://placekitten.com/200/200" alt="User Avatar" class="img-fluid rounded-circle">
                     </div>
                     <div class="col-md-8">
-                        <h3 id="profileName">John Doe</h3>
+                        <h3 id="companyName">Xyz Company</h3>
                         <p>Email: <span id="profileEmail">john.doe@example.com</span></p>
                         <p>Phone: <span id="profilePhone">123-456-7890</span></p>
                         <p>Address: <span id="profileLocation">City, Country</span></p>
@@ -24,7 +23,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Edit Profile Modal -->
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -43,8 +42,8 @@
                             <input type="file" id="imageInput" class="mt-2" accept="image/*">
                         </div>
                         <div class="form-group">
-                            <label for="editName">Name:</label>
-                            <input type="text" class="form-control" id="editName" value="John Doe">
+                            <label for="editCompanyName">Company Name:</label>
+                            <input type="text" class="form-control" id="editCompanyName" value="John Doe">
                         </div>
                         <div class="form-group">
                             <label for="editEmail">Email:</label>
@@ -70,7 +69,7 @@
                             <label for="confirmPassword">Confirm Password:</label>
                             <input type="password" class="form-control" id="confirmPassword">
                         </div>
-                        <button type="button" style="background-color: #352f44;" class="btn text-white ">Save Changes</button>
+                        <button type="button" style="background-color: #352f44;" class="btn text-white  ">Save Changes</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -79,7 +78,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Delete Account Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -100,6 +99,5 @@
             </div>
         </div>
     </div>
-    
-    
-</x-customer-layout>
+
+</x-layout>
