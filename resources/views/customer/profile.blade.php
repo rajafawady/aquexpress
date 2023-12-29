@@ -18,11 +18,11 @@
                     </div>
                 </div>
             </div>
-            <div class="card-footer">
+            <div class="card-footer row justify-content-between">
                 <a href="/profile/edit" class="btn text-white" style="background-color: #352f44;">Edit Profile</a>
                 <form action="/profile/delete" method="POST" id="deleteForm">
                     @csrf
-                    <button class="btn btn-danger float-right" id="deleteButton">Delete Account</button>
+                    <button class="btn btn-danger" id="deleteButton">Delete Account</button>
                 </form>
             </div>
         </div>
