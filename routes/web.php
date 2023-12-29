@@ -17,6 +17,7 @@ use App\Http\Controllers\SupplierController;
 
 
 Route::prefix('supplier')->group(function () {
+
     // Supplier Registration
     Route::get('/register', [SupplierController::class, 'showRegistrationForm']);
     Route::post('/registration', [SupplierController::class, 'createUser']);
@@ -25,10 +26,11 @@ Route::prefix('supplier')->group(function () {
     Route::get('/login', [SupplierController::class, 'showLoginForm'])->name("supplier.login");
     Route::post('/authenticate', [SupplierController::class, 'authenticate']);
 
+
     // Supplier Authenticated Routes
     Route::middleware(['auth:supplier'])->group(function () {
         Route::get('/', [SupplierController::class, 'supplierHome']);
-        Route::get('/supplier/logout', [SupplierController::class, 'logout']);
+        Route::get('/logout', [SupplierController::class, 'logout']);
 
         Route::get('/neworders', [SupplierController::class, 'newOrders']);
         Route::get('/acceptorder/{order}', [SupplierController::class, 'acceptOrder']);
@@ -39,6 +41,10 @@ Route::prefix('supplier')->group(function () {
         Route::get('/completeorder/{order}', [SupplierController::class, 'completeOrder']);
 
         Route::get('/stats', [SupplierController::class, 'stats']);
+
+            Route::get('/profile', [SupplierController::class, 'showProfile']);
+        Route::get('/profile/edit', [SupplierController::class, 'showEditProfileForm']);
+        Route::post('/profile/delete', [SupplierController::class, 'deleteProfile']);
     });
 });
 

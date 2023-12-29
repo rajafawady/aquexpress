@@ -49,20 +49,20 @@ class SupplierController extends BaseController
             'email' => ['required', 'email', Rule::unique('suppliers', 'email')],
             'password' => 'required | confirmed | min:6',
             'address' => 'required',
-            'cnicFront' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming it's an image file
-            'cnicBack' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming it's an image file
+            'cnic_front' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming it's an image file
+            'cnic_back' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming it's an image file
         ]);
 
         // Hash Password
         $formFields['password'] = bcrypt($formFields['password']);
 
         // Handle file uploads and store paths
-        $cnicFrontPath = $request->file('cnicFront')->store('cnic_pics', 'public');
-        $cnicBackPath = $request->file('cnicBack')->store('cnic_pics', 'public');
+        $cnicFrontPath = $request->file('cnic_front')->store('cnic_pics', 'public');
+        $cnicBackPath = $request->file('cnic_back')->store('cnic_pics', 'public');
 
         // Add file paths to the form fields
-        $formFields['cnicFront'] = $cnicFrontPath;
-        $formFields['cnicBack'] = $cnicBackPath;
+        $formFields['cnic_front'] = $cnicFrontPath;
+        $formFields['cnic_back'] = $cnicBackPath;
 
         // Create User
         $user = Supplier::create($formFields);
