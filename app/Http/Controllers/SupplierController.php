@@ -28,11 +28,11 @@ class SupplierController extends BaseController
     }
     
     public function showProfile(){
-        return view('/supplier/profile',['user'=>auth()->user()]);
+        return view('/supplier/supplierProfile',['user'=>auth()->user()]);
     }
 
     public function showEditProfileForm(){
-        return view('/supplier/editprofile',['user'=>auth()->user()]);
+        return view('/supplier/supplierEditProfile',['user'=>auth()->user()]);
     }
 
     public function authenticate(Request $request){
@@ -269,14 +269,14 @@ class SupplierController extends BaseController
                 [
                     'name'=>'required',
                     'phone'=>'required',
-                    'email'=>['required','email', Rule::unique('users', 'email')],
+                    'email'=>['required','email'],
                     'password'=>'required | confirmed | min:6',
                     'address'=>'required',
                     'picture'=>''
                 ]
                 );
             // Get the currently authenticated user
-            $user = Auth::user();
+            $user = Auth::guard('supplier')->user();
 
             // Update the user's profile data with the values from the submitted form
             $user->update($formFields);
@@ -288,7 +288,7 @@ class SupplierController extends BaseController
 
         public function deleteProfile(Request $request)
         {
-            $user = Auth::user();
+            $user = Auth::guard('supplier')->user();
 
             if ($user) {
                 try {
@@ -308,7 +308,7 @@ class SupplierController extends BaseController
                     $user->delete();
                     
                     // Logout the user
-                    Auth::logout();
+                    Auth::guard('supplier')->logout();
 
                     // Clear the user's session data
                     Session::flush();
