@@ -6,7 +6,7 @@
     <section>
       
         <div class="contact-container">
-          <div class="contact-details bounce-in-left">
+          <div class="contact-details bounce-in-left text-center">
             <h2 class="text-white text-center">Contact Us</h2>
                 <div class="contact-child">
                    <div class="icon-container">

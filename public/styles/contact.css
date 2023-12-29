@@ -21,6 +21,7 @@ body{
     display: flex;
     flex-flow: column;
     justify-content: center;
+    align-items: center;
     color: white;
     flex: 0.5;
     background: #352f44;
@@ -90,6 +91,30 @@ button:hover {
     background-color:#967bb6 ;
 }
 
+@media(max-width:950px) {
+    .contact-container {
+        width: 100%;
+        display: flex;
+        flex-flow: column-reverse;
+        align-items: center;
+        border-radius: 10px;
+        margin-bottom: 2em;
+        row-gap: 2em;
+    }
+
+    .contact-details {
+        width: 80%;
+        padding: 20px;
+    }
+    .contact-form{
+        width: 80%;
+    }
+
+    .contact-form form {
+        padding: 15px;
+    }
+}
+
 @media(max-width:500px){
     .contact-container {
         width: 100%;
@@ -102,7 +127,11 @@ button:hover {
     }
     .contact-details{
         padding: 20px;
+        width: 100%;
     }
+          .contact-form {
+              width: 100%;
+          }
     .contact-form form{
         padding: 15px;
     }
