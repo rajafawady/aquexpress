@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="{{asset('styles/about.css')}}">
-<x-customer-layout>
+<x-customer-layout active='about-us'>
   
   <section>
     <div class="main-container">

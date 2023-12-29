@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{asset('styles/style.css')}}">
 <link rel="stylesheet" href="{{asset('styles/contact.css')}}">
 
-  <x-customer-layout>
+  <x-customer-layout active='contact-us'>
 
     <section>
       

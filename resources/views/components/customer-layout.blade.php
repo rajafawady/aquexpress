@@ -1,3 +1,4 @@
+@props(['active'])
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,31 +29,40 @@
               </button>
               <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                   <ul class="navbar-nav">
-                      <li class="nav-item active">
-                          <a class="nav-link" href="/">Home</a>
+                      <li class="nav-item">
+                          <a class="nav-link {{(isset($active) && $active=='home')?"active":""}}" href="/">Home</a>
+                      </li>
+
+                      @auth
+                      <li class="nav-item">
+                        <a class="nav-link {{(isset($active) && $active=='auto-order')?"active":""}}" href="/auto-order">Auto Ordering</a>
+                    </li>
+                    @endauth
+                    
+                      <li class="nav-item">
+                          <a class="nav-link {{(isset($active) && $active=='features')?"active":""}}" href="/#features">Features</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="index.html#features">Features</a>
+                          <a class="nav-link {{(isset($active) && $active=='about-us')?"active":""}}" href="/about">About Us</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="/about">About Us</a>
+                          <a class="nav-link {{(isset($active) && $active=='contact-us')?"active":""}}" href="/contact">Contact Us</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="/contact">Contact Us</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="index.html#faq">FAQs</a>
+                          <a class="nav-link {{(isset($active) && $active=='faqs')?"active":""}}" href="/#faq">FAQs</a>
                       </li>
                       
                       
                       @auth
-                      <li class="text-light">Hello, {{auth()->user()->name ? auth()->user()->name:""}}</li>
+                      <li class="nav-item border-2 border-white rounded-lg">
+                        <a class="nav-link" href="/logout">Logout</a>
+                        </li>
                       @else
                       <li class="nav-item">
-                        <a class="nav-link" href="/login">Sign In</a>
+                        <a class="nav-link {{(isset($active) && $active=='signin')?"active":""}}" href="/login">Sign In</a>
                         </li>
                         <li class="nav-item">
-                            <a class="register-anchor nav-link text-white" href="/register">
+                            <a class="register-anchor nav-link {{(isset($active) && $active=='register')?"active":""}}" href="/register">
                                 Register Now
                             </a>
                         </li>

@@ -1,8 +1,6 @@
 <link rel="stylesheet" href="{{asset('styles/register.css')}}">
-<link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css')}}">
 
-
-<x-customer-layout>
+<x-customer-layout active='signin'>
 
 
     <section class="sign-in-section">
@@ -22,11 +20,12 @@
                     <label for="password">Password</label>
                     <div class="input-group">
                         <input type="password" class="form-control" id="password" placeholder="*******" name="password">
-                        <div class="input-group-append">
-                            <span class="input-group-text">
-                                <i class="far fa-eye" style="color: black" id="togglePassword" onclick="togglePasswordVisibility()"></i>
-                            </span>
-                        </div>
+                        <div class="input-group-append pointer" onclick="togglePasswordVisibility('password')">
+                          <span class="input-group-text">
+                              <i class="far fa-eye" id="togglepassword"></i>
+                          </span>
+                      </div>
+
                          @error('password')
                         <p class="text-danger text-lg mt-1">{{$message}}</p>
                         @enderror
@@ -59,7 +58,7 @@
       <script>
                 function togglePasswordVisibility() {
                     var passwordInput = document.getElementById("password");
-                    var toggleIcon = document.getElementById("togglePassword");
+                    var toggleIcon = document.getElementById("togglepassword");
 
                     if (passwordInput.type === "password") {
                         passwordInput.type = "text";

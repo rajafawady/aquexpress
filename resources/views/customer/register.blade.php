@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{asset('styles/register.css')}}">
 
-<x-customer-layout>
+<x-customer-layout active='register'>
 
     <section class="sign-in-section">
         <div class="sign-up bounce-in-left" id="sign-up">
@@ -50,9 +50,10 @@
                 <label for="password">Password</label>
                 <div class="input-group">
                     <input type="password" class="form-control" id="password" placeholder="*******" name="password">
-                    <div class="input-group-append">
+
+                    <div class="input-group-append pointer" onclick="togglePasswordVisibility('password')">
                         <span class="input-group-text">
-                            <i class="far fa-eye" id="togglePassword" onclick="togglePasswordVisibility('password')"></i>
+                            <i class="far fa-eye" id="togglepassword"></i>
                         </span>
                     </div>
                 </div>
@@ -66,11 +67,14 @@
                     <div class="input-group">
                         <input type="password" class="form-control" id="confirmPassword" placeholder="*******"
                         name="password_confirmation">
-                        <div class="input-group-append">
+
+
+                        <div class="input-group-append pointer" onclick="togglePasswordVisibility('confirmPassword')">
                             <span class="input-group-text">
-                                <i class="far fa-eye" style="color: black" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPassword')"></i>
+                                <i class="far fa-eye" style="color: black" id="toggleconfirmPassword"></i>
                             </span>
                         </div>
+
                     </div>
                 </div>
 

@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="{{asset('styles/register.css')}}">
-<link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css')}}">
 
 
 
@@ -65,9 +64,10 @@
                     <label for="password">Password</label>
                     <div class="input-group">
                         <input type="password" class="form-control" id="password" placeholder="*******" name="password">
-                        <div class="input-group-append">
+
+                        <div class="input-group-append pointer" onclick="togglePasswordVisibility('password')">
                             <span class="input-group-text">
-                                <i class="far fa-eye" style="color: black" id="togglePassword" onclick="togglePasswordVisibility('password')"></i>
+                                <i class="far fa-eye" id="togglepassword"></i>
                             </span>
                         </div>
                     </div>
@@ -83,11 +83,13 @@
                     <div class="input-group">
                         <input type="password" class="form-control" id="confirmPassword" placeholder="*******"
                         name="password_confirmation">
-                        <div class="input-group-append">
+
+                        <div class="input-group-append pointer" onclick="togglePasswordVisibility('confirmPassword')">
                             <span class="input-group-text">
-                                <i class="far fa-eye" style="color: black" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPassword')" ></i>
+                                <i class="far fa-eye" style="color: black" id="toggleconfirmPassword"></i>
                             </span>
                         </div>
+
                     </div>
                     @error('password_confirmation')
                   <p class="text-danger text-lg mt-1">{{$message}}</p>

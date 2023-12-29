@@ -15,70 +15,59 @@ use App\Http\Controllers\SupplierController;
 |
 */
 
-//Supplier Routes
-Route::get('/supplier/register', function () {
-    return view('/supplier/supplierRegister');
-});
 
-Route::post('/supplier/registration', [SupplierController::class, 'createUser']);
+Route::prefix('supplier')->group(function () {
+    // Supplier Registration
+    Route::get('/register', [SupplierController::class, 'showRegistrationForm']);
+    Route::post('/registration', [SupplierController::class, 'createUser']);
 
-Route::get('/supplier/login', function () {
-    return view('/supplier/login');
-});
+    // Supplier Login
+    Route::get('/login', [SupplierController::class, 'showLoginForm'])->name("supplier.login");
+    Route::post('/authenticate', [SupplierController::class, 'authenticate']);
 
-Route::post('/supplier/authenticate', [SupplierController::class, 'authenticate']);
+    // Supplier Authenticated Routes
+    Route::middleware(['auth:supplier'])->group(function () {
+        Route::get('/', [SupplierController::class, 'supplierHome']);
+        Route::get('/supplier/logout', [SupplierController::class, 'logout']);
 
+        Route::get('/neworders', [SupplierController::class, 'newOrders']);
+        Route::get('/acceptorder/{order}', [SupplierController::class, 'acceptOrder']);
+        
+        Route::get('/pendingorders', [SupplierController::class, 'pendingOrders']);
+        
+        Route::get('/completedorders', [SupplierController::class, 'completedOrders']);
+        Route::get('/completeorder/{order}', [SupplierController::class, 'completeOrder']);
 
-Route::middleware(['auth:supplier'])->group(function () {
-    Route::get('/supplier', function () {
-        return view('/supplier/supplierhome');
+        Route::get('/stats', [SupplierController::class, 'stats']);
     });
-    
-    Route::get('/supplier/logout',[SupplierController::class, 'logout']);
-    
-    Route::get('/supplier/neworders', [SupplierController::class , 'newOrders']);
-    Route::get('/supplier/acceptorder/{order}', [SupplierController::class , 'acceptOrder']);
-    
-    Route::get('/supplier/pendingorders', [SupplierController::class , 'pendingOrders']);
-    
-    Route::get('/supplier/completedorders', [SupplierController::class , 'completedOrders']);
-    Route::get('/supplier/completeorder/{order}', [SupplierController::class , 'completeOrder']);
-
-    Route::get('/supplier/stats', [SupplierController::class, 'stats']);
 });
 
 
-//Supplier Routes Ended
 
-
-//Customer Routes
-Route::get('/', function () {
-    return view('/customer/index');
-})->name('customer.home');
-
-Route::get('/register', function () {
-    return view('/customer/register');
-});
-
-Route::post('/register', [CustomerController::class, 'createUser']);
-
-Route::get('/login', function () {
-    return view('/customer/login');
-});
-
-Route::get('/about', function () {
-    return view('/customer/about');
-});
-
-Route::get('/contact', function () {
-    return view('/customer/contact');
-});
-
+// Customer Routes
+Route::get('/', [CustomerController::class, 'index'])->name('customer.home');
+// Customer Login
+Route::get('/login', [CustomerController::class, 'showLoginForm'])->name('customer.login');
 Route::post('/login', [CustomerController::class, 'authenticate']);
+// Customer Registration
+Route::get('/register', [CustomerController::class, 'showRegistrationForm']);
+Route::post('/register', [CustomerController::class, 'createUser']);
+//Route for About Us Page
+Route::get('/about', [CustomerController::class, 'about']);
+//Route for Contact Us Page
+Route::get('/contact', [CustomerController::class, 'contact']);
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/orderdetails', function () {
-        return view('/customer/order');
-    })->name('customer.order');
+Route::middleware(['auth:web'])->group(function () {
     
+    //Customer Logout
+    Route::get('/logout', [CustomerController::class, 'logout']);
+    // Auto Ordering Routes
+    Route::get('/auto-order', [CustomerController::class, 'showAutoOrderForm']);
+    Route::post('/auto-order', [CustomerController::class, 'autoOrder']);
+
+    // Route for Order Details
+    Route::get('/orderdetails', [CustomerController::class, 'orderDetails']);
+
+    // Route for Checkout
+    Route::post('/checkout', [CustomerController::class, 'checkout']);
 });

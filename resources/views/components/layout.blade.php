@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AquExpress for Business</title>
     <link rel="shortcut icon" href="images/icon/transparent_white.ico" type="image/x-icon">
-    <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
       <style>
         .search-btn:hover {
@@ -18,6 +18,7 @@
     
         }
     </style>
+    <script src="//unpkg.com/alpinejs" defer></script>
     
 
 </head>
@@ -52,7 +53,10 @@
                       </li>
                       <li class="nav-item {{(isset($active) && $active=='completedorders')?"active":""}}">
                           <a class="nav-link" href="/supplier/completedorders">Completed Orders</a>
-                      </li>                      
+                      </li> 
+                      <li class="nav-item {{(isset($active) && $active=='stats')?"active":""}}">
+                        <a class="nav-link" href="/supplier/stats">Stats</a>
+                    </li>                       
                       
                       
                     <li class="nav-item border-2 border-white rounded-lg">

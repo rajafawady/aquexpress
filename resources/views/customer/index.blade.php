@@ -1,4 +1,4 @@
-<x-customer-layout>
+<x-customer-layout active='home'>
   
     <Section>
       <!--Hero Section Start-->
@@ -38,74 +38,10 @@
                     
                   </div>
                   <div class="form-container" id="order-form">
-                    <form class="form">
-                      <div class="form-group">
-                        <label for="quantity">Quantity</label>
-                        <Select id="quantity">
-                          <option value="Full">Half Tank</option>
-                          <option value="Full">Full Tank</option>
-                    </Select>
+                    {{--}}Will be Rendered Dynamically Through Js{{--}}
                   </div>
-                  <div class="form-group">
-                    <label for="time">Time</label>
-                    <input type="time" id="time" name="time" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="date">Date</label>
-                    <input type="date" id="date" name="date" required>
-                  </div>
-                  <div class="right">
-                    <button class="submit-button btn text-white" type="submit">Book Your Tank</button>
-                  </div>
-                  
-                </form>
-              </div>
             </div>
-            <script>
-              
-              document.getElementById('orderNowBtn').addEventListener('click', function () {
-                var orderNowForm=`<form class="form">
-                  <div class="form-group">
-                    <label for="quantity">Quantity</label>
-                    <Select id="quantity">
-                      <option value="Full">Half Tank</option>
-                      <option value="Full">Full Tank</option>
-                    </Select>
-                  </div>
-                  <div class="right">
-                    <button class="submit-button btn text-white" type="submit">Book Your Tank</button>
-                  </div>
-                  
-                </form>`;
-                document.getElementById("order-form").innerHTML=orderNowForm
-                
-              });
-              
-              document.getElementById('scheduleOrderBtn').addEventListener('click', function () {
-                var scheduleOrderForm = `<form class="form">
-                  <div class="form-group">
-                    <label for="quantity">Quantity</label>
-                    <Select id="quantity">
-                      <option value="Full">Half Tank</option>
-                      <option value="Full">Full Tank</option>
-                    </Select>
-                  </div>
-                  <div class="form-group">
-                    <label for="time">Time</label>
-                    <input type="time" id="time" name="time" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="date">Date</label>
-                    <input type="date" id="date" name="date" required>
-                  </div>
-                  <div class="right">
-                    <button class="submit-button btn text-white" type="submit">Book Your Tank</button>
-                  </div>
-                  
-                </form>`;
-                document.getElementById('order-form').innerHTML=scheduleOrderForm;
-              });
-            </script>
+ 
   
   
           <!--Book Now Ends-->
@@ -277,3 +213,52 @@
       
    
         </x-customer-layout>
+
+
+        <script>
+          var container=document.getElementById("order-form");
+          var orderNowForm=`<form class="form" method="GET" action="/orderdetails">
+              <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <Select id="quantity" name='quantity'>
+                  <option value="0.5">Half Tank</option>
+                  <option value="1">Full Tank</option>
+                </Select>
+              </div>
+              <div class="right">
+                <button class="submit-button btn text-white" type="submit">Book Your Tank</button>
+              </div>
+              
+            </form>`;
+            container.innerHTML=orderNowForm;
+              
+          document.getElementById('orderNowBtn').addEventListener('click', function () {
+            container.innerHTML=orderNowForm;
+            
+          });
+          
+          document.getElementById('scheduleOrderBtn').addEventListener('click', function () {
+            var scheduleOrderForm = `<form class="form"  method="GET" action="/orderdetails">
+              <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <Select id="quantity" name="quantity" required>
+                  <option value="0.5">Half Tank</option>
+                  <option value="1">Full Tank</option>
+                </Select>
+              </div>
+              <div class="form-group">
+                <label for="time">Time</label>
+                <input type="time" id="time" name="time" required>
+              </div>
+              <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+              </div>
+              <div class="right">
+                <button class="submit-button btn text-white" type="submit">Book Your Tank</button>
+              </div>
+              
+            </form>`;
+            document.getElementById('order-form').innerHTML=scheduleOrderForm;
+          });
+        </script>

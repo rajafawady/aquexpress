@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout active='stats'>
 
     <section>
 

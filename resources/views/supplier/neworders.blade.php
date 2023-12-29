@@ -25,13 +25,14 @@
                 <div class="card-body d-flex justify-content-between align-items-center ">
                     <!-- Order Details -->
                     <div class="order-details">
-                        <p><strong>Order ID:</strong>{{$order->id}}</p>
-                        <p><strong>Customer Name:</strong>{{$order->user->name}}</p>
-                        <p><strong>Address:</strong>{{$order->address}}</p>
-                        <p><strong>Quantity:</strong>{{$order->quantity}}</p>
-                        <p><strong>Delivery Time:</strong>{{$order->time}}</p>
-                        <p><strong>Payment mode:</strong>{{$order->payment_method}}</p>
-                        <p><strong>Total Bill:</strong>{{$order->amount}}</p>
+                        <p><strong>Order ID: </strong>{{$order->id}}</p>
+                        <p><strong>Customer Name: </strong>{{$order->user->name}}</p>
+                        <p><strong>Address: </strong>{{$order->address}}</p>
+                        <p><strong>Quantity: </strong>{{$order->quantity==0.5?"Half":"Full"}}</p>
+                        <p><strong>Delivery Time: </strong>{{$order->time}}</p>
+                        <p><strong>Phone: </strong>{{$order->phone}}</p>
+                        <p><strong>Payment mode: </strong>{{$order->payment_method}}</p>
+                        <p><strong>Total Bill: </strong>{{$order->amount}}</p>
                     </div>
                     <!-- Action Buttons -->
                     <div class="action-buttons d-flex flex-column align-items-end">

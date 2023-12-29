@@ -14,6 +14,19 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class SupplierController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+
+    public function supplierHome(){
+        return view('/supplier/index');
+    }
+
+    public function showRegistrationForm(){
+        return view('/supplier/index');
+    }
+
+    public function showLoginForm(){
+        return view('/supplier/supplierLogin');
+    }
+
     public function authenticate(Request $request){
         $formFields=$request->validate([
             'email'=> ['required','email'],
@@ -54,6 +67,10 @@ class SupplierController extends BaseController
     }
 
     public function newOrders(Request $request){
+        if(!(Auth::guard('supplier')->user())){
+            return route('supplier.login');
+        }
+
         $search = $request->get('search');
         if($search){
             $orders = Order::with(['user'])
