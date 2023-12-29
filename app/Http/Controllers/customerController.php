@@ -97,7 +97,7 @@ class CustomerController extends BaseController
         $date = $request->filled('date') ? $request->date : now()->toDateString();
 
         if($quantity){
-            return view('/customer/order', compact('quantity','time','date'));
+            return view('/customer/orderdetails', compact('quantity','time','date'));
         }else{
             return back()->with('message','Please Choose Order Details First!');
         }
