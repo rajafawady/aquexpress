@@ -41,6 +41,13 @@ class CustomerController extends BaseController
         return view('/customer/auto-order');
     }
 
+    public function showProfile(){
+        return view('/customer/profile',['user'=>auth()->user()]);
+    }
+
+    public function showEditProfileForm(){
+        
+    }
 
     public function authenticate(Request $request){
         $formFields=$request->validate([
@@ -184,7 +191,7 @@ class CustomerController extends BaseController
             // Redirect to the profile page with a success message
             return redirect()->route('profile')->with('success', 'Profile updated successfully!');
         }
-        public function deleteAccount()
+        public function deleteProfile()
         {
             // Get the currently authenticated user
             $user = Auth::user();
@@ -195,7 +202,7 @@ class CustomerController extends BaseController
             $user->delete();            
 
             // Redirect to the home page with a success message
-            return redirect('/')->with('success', 'Account deleted successfully!');
+            return redirect('/login')->with('message', 'Account deleted successfully!');
         }
 
 }

@@ -11,95 +11,34 @@
                         <img id="profileImage" src="https://placekitten.com/200/200" alt="User Avatar" class="img-fluid rounded-circle">
                     </div>
                     <div class="col-md-8">
-                        <h3 id="profileName">John Doe</h3>
-                        <p>Email: <span id="profileEmail">john.doe@example.com</span></p>
-                        <p>Phone: <span id="profilePhone">123-456-7890</span></p>
-                        <p>Address: <span id="profileLocation">City, Country</span></p>
+                        <h3 id="profileName">{{$user->name}}</h3>
+                        <p>Email: <span id="profileEmail">{{$user->email}}</span></p>
+                        <p>Phone: <span id="profilePhone">{{$user->phone}}</span></p>
+                        <p>Address: <span id="profileLocation">{{$user->address}}</span></p>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn text-white" style="background-color: #352f44;" data-toggle="modal" data-target="#editModal">Edit Profile</button>
-                <button class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteModal">Delete Account</button>
+                <button class="btn text-white" style="background-color: #352f44;">Edit Profile</button>
+                <form action="/profile/delete" method="POST" id="deleteForm">
+                    @csrf
+                    <button class="btn btn-danger float-right" id="deleteButton">Delete Account</button>
+                </form>
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('deleteButton').addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            var confirmation = confirm('Are you sure you want to delete your account?');
     
-    <!-- Edit Profile Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-white" style="background-color: #352f44;">
-                    <h5 class="modal-title" id="editModalLabel">Edit Profile</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span class="text-white" aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Edit profile form goes here -->
-                    <form id="profileEditForm">
-                        <div class="form-group d-flex flex-column">
-                            <label for="editName">Update Profile Photo:</label>
-                            <input type="file" id="imageInput" class="mt-2" accept="image/*">
-                        </div>
-                        <div class="form-group">
-                            <label for="editName">Name:</label>
-                            <input type="text" class="form-control" id="editName" value="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="editEmail">Email:</label>
-                            <input type="email" class="form-control" id="editEmail" value="john.doe@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="editPhone">Phone:</label>
-                            <input type="tel" class="form-control" id="editPhone" value="123-456-7890">
-                        </div>
-                        <div class="form-group">
-                            <label for="editLocation">Location:</label>
-                            <input type="text" class="form-control" id="editLocation" value="City, Country">
-                        </div>
-                        <div class="form-group">
-                            <label for="editAddress">Address:</label>
-                            <textarea class="form-control" id="editAddress" rows="2"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="editPassword">New Password:</label>
-                            <input type="password" class="form-control" id="editPassword">
-                        </div>
-                        <div class="form-group">
-                            <label for="confirmPassword">Confirm Password:</label>
-                            <input type="password" class="form-control" id="confirmPassword">
-                        </div>
-                        <button type="button" style="background-color: #352f44;" class="btn text-white ">Save Changes</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Delete Account Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-danger text-white">
-                    <h5 class="modal-title" id="deleteModalLabel">Delete Account</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to delete your account? This action cannot be undone.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-danger">Delete Account</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+            if (confirmation) {
+                // If the user clicks "OK," submit the form
+                document.getElementById('deleteForm').submit();
+            }
+        });
+    </script>
     
 </x-customer-layout>
