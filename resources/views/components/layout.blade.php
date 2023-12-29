@@ -65,10 +65,10 @@
                     
                       @else
                       <li class="nav-item">
-                        <a class="nav-link" href="login.html">Sign In</a>
+                        <a class="nav-link {{(isset($active) && $active=='signin')?"active":""}}" href="/login">Sign In</a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="register-anchor nav-link text-white" href="register.html">
+                        <li class="nav-item {{(isset($active) && $active=='register')?"active":""}}">
+                            <a class="register-anchor nav-link" href="/register">
                                 Register Now
                             </a>
                         </li>

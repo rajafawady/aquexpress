@@ -2,7 +2,7 @@
 
 
 
-<x-layout>
+<x-layout active='signin'>
 
 
     <section class="sign-in-section">

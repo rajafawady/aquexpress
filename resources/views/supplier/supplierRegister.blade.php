@@ -3,7 +3,7 @@
 
 
 
-<x-layout>
+<x-layout active='register'>
 
     <section class="sign-in-section">
         <div class="sign-up bounce-in-left" id="sign-up">
