@@ -41,13 +41,13 @@
 
                 <!-- CNIC Pictures--> 
                 <div class="form-group">
-                    <label for="cnicFront">CNIC Picture (Front)</label>
-                    <input type="file" class="form-control-file" id="cnicFront" name="cnicFront" value="{{old('cnicFront')}}">
+                    <label for="cnic_front">CNIC Picture (Front)</label>
+                    <input type="file" class="form-control-file" id="cnic_front" name="cnic_front" value="{{old('cnic_front')}}">
                 </div>
 
                 <div class="form-group">
-                    <label for="cnicBack">CNIC Picture (Back)</label>
-                    <input type="file" class="form-control-file" id="cnicBack" name="cnicBack" value="{{old('cnicBack')}}">
+                    <label for="cnic_back">CNIC Picture (Back)</label>
+                    <input type="file" class="form-control-file" id="cnic_back" name="cnic_back" value="{{old('cnic_back')}}">
                 </div> 
 
                 <!-- Address -->
