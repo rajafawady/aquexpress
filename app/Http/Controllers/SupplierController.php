@@ -275,6 +275,10 @@ class SupplierController extends BaseController
                     'picture'=>''
                 ]
                 );
+                 if($formFields['picture']){
+                    $profile = $request->file('picture')->store('images', 'public');
+                    $formFields['picture'] = $profile;
+                }
             // Get the currently authenticated user
             $user = Auth::guard('supplier')->user();
 
