@@ -185,17 +185,21 @@ class CustomerController extends BaseController
 
         public function updateProfile(Request $request)
         {
-
             $formFields=$request->validate(
                 [
                     'name'=>'required',
                     'phone'=>'required',
-                    'email'=>['required','email', Rule::unique('users', 'email')],
-                    'password'=>'required | confirmed | min:6',
+                    'email'=>['required','email'],
                     'address'=>'required',
                     'picture'=>''
                 ]
                 );
+                
+                if($formFields['picture']){
+                    $profile = $request->file('picture')->store('images', 'public');
+                    $formFields['picture'] = $profile;
+                }
+                
             // Get the currently authenticated user
             $user = Auth::user();
 
@@ -203,7 +207,7 @@ class CustomerController extends BaseController
             $user->update($formFields);
 
             // Redirect to the profile page with a success message
-            return redirect()->route('/profile')->with('message', 'Profile updated successfully!');
+            return redirect('/profile')->with('message', 'Profile updated successfully!');
         }
 
 

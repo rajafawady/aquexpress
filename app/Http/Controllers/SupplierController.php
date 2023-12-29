@@ -65,8 +65,8 @@ class SupplierController extends BaseController
         $formFields['password'] = bcrypt($formFields['password']);
 
         // Handle file uploads and store paths
-        $cnicFrontPath = $request->file('cnic_front')->store('cnic_pics', 'public');
-        $cnicBackPath = $request->file('cnic_back')->store('cnic_pics', 'public');
+        $cnicFrontPath = $request->file('cnic_front')->store('images', 'public');
+        $cnicBackPath = $request->file('cnic_back')->store('images', 'public');
 
         // Add file paths to the form fields
         $formFields['cnic_front'] = $cnicFrontPath;
