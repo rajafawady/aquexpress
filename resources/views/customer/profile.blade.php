@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn text-white" style="background-color: #352f44;">Edit Profile</button>
+                <a href="/profile/edit" class="btn text-white" style="background-color: #352f44;">Edit Profile</a>
                 <form action="/profile/delete" method="POST" id="deleteForm">
                     @csrf
                     <button class="btn btn-danger float-right" id="deleteButton">Delete Account</button>
