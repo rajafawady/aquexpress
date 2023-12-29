@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <label for="name">Enter Full Name</label>
                     <input type="text" class="form-control" id="name" placeholder="Full Name"
-                        name="name">
+                        name="name" value="{{old('name')}}">
 
                      @error('name')
                         <p class="text-danger text-lg mt-1">{{$message}}</p>
@@ -22,7 +22,7 @@
                 <!-- Phone Number -->
                 <div class="form-group">
                     <label for="phone">Phone No.</label>
-                    <input type="text" class="form-control" placeholder="+923XXXXXXXXX" id="phone" name="phone">
+                    <input type="text" class="form-control" placeholder="+923XXXXXXXXX" id="phone" name="phone" value="{{old('phone')}}">
                     @error('phone')
                       <p class="text-danger text-lg mt-1">{{$message}}</p>
                     @enderror
@@ -30,7 +30,7 @@
                 <!-- Email  -->
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" class="form-control" placeholder="xyz@domain.com" id="email" name="email">
+                    <input type="text" class="form-control" placeholder="xyz@domain.com" id="email" name="email" value="{{old('phone')}}">
                     @error('email')
                             <p class="text-danger text-lg mt-1">{{$message}}</p>
                             @enderror
@@ -38,7 +38,7 @@
                 <!-- Address -->
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="hidden" name="address" id="address">
+                    <input type="hidden" name="address" id="address" value="{{old('address')}}">
                     <x-googlemap />
                         @error('address')
                                 <p class="text-danger text-lg mt-1">{{$message}}</p>
@@ -49,7 +49,7 @@
                             <div class="form-group">
                 <label for="password">Password</label>
                 <div class="input-group">
-                    <input type="password" class="form-control" id="password" placeholder="*******" name="password">
+                    <input type="password" class="form-control" id="password" placeholder="*******" name="password" value="{{old('password')}}">
 
                     <div class="input-group-append pointer" onclick="togglePasswordVisibility('password')">
                         <span class="input-group-text">

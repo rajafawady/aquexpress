@@ -37,13 +37,13 @@
                 <h2 class="text-white text-center">Send Us a Message</h2>
                 <form>
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" required value="{{old('name')}}">
     
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required value="{{old('email')}}">
     
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <textarea id="message" name="message" rows="4" required value="{{old('message')}}"></textarea>
     
                     <button class="btn text-white mt-3" type="submit">Send</button>
                   </form>

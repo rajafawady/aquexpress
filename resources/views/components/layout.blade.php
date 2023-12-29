@@ -108,15 +108,15 @@
                   </div>
                   <div class="footer-links d-flex flex-wrap justify-content-center">
                         @if(auth()->guard('supplier')->user())
-                      <a href="/supplier/index.html" class="text-white mx-2">Home </a>
+                      <a href="/supplier/index" class="text-white mx-2">Home </a>
                       <a href="/supplier/neworders" class="text-white mx-2">New Orders </a>
                       <a href="/supplier/pendingorders" class="text-white mx-2">Pending Orders</a>
                       <a href="/supplier/completedorders" class="text-white mx-2">Completed Orders</a>
                       <a href="/supplier/stats" class="text-white mx-2">Stats</a>
                       <a href="/supplier/supplierProfile" class="text-white mx-2">Profile</a>
                       @else
-                      <a href="/supplier/supplierLogin" class="text-white mx-2">Sign In </a>
-                      <a href="/supplier/supplierRegister" class="text-white mx-2">Register</a>
+                      <a href="/supplier/login" class="text-white mx-2">Sign In </a>
+                      <a href="/supplier/register" class="text-white mx-2">Register</a>
                       @endauth
                   </div>
               </div>

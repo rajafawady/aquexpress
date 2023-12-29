@@ -117,19 +117,19 @@
                 </div>
                 <div class="footer-links d-flex flex-wrap justify-content-center">
                     <a href="/" class="text-white mx-2">Home </a>
-                    <a href="index.html#features" class="text-white mx-2">Features </a>
+                    <a href="/#features" class="text-white mx-2">Features </a>
                     @auth
                     <a href="/auto-order" class="text-white mx-2">Auto Ordering </a>
                     <a href="/order" class="text-white mx-2">Order Now </a>
                     @endauth
                     <a href="/about" class="text-white mx-2">About Us </a>
                     <a href="/contact" class="text-white mx-2">Contact Us </a>
-                    <a href="index.html#faq" class="text-white mx-2">FAQ </a>
+                    <a href="/#faq" class="text-white mx-2">FAQ </a>
                     @auth
                         <a href="/profile" class="text-white mx-2 d-flex align-items-center">Profile</a>
                     @else
-                        <a href="login.html" class="text-white mx-2">Sign In </a>
-                        <a href="register.html" class="text-white mx-2">Register Now </a>
+                        <a href="/login" class="text-white mx-2">Sign In </a>
+                        <a href="/register" class="text-white mx-2">Register Now </a>
 
 
                     @endauth

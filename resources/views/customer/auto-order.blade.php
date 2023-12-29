@@ -12,7 +12,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="quantity">Quantity</label>
-                        <Select class="form-control" id="quantity" name='quantity'>
+                        <Select class="form-control" id="quantity" name='quantity' value="{{old('quantity')}}">
                           <option value="0.5">Half Tank</option>
                           <option value="1">Full Tank</option>
                         </Select>
@@ -25,7 +25,7 @@
                         <label for="replacementPeriod">Replacement Period</label>
                         <div class="input-group">
                             <input type="number" class="form-control" id="replacementPeriod" placeholder="Enter period" name="period"
-                                required>
+                                required value="{{old('period')}}">
                             <div class="input-group-append">
                                 <span class="input-group-text">days</span>
                             </div>
@@ -37,7 +37,7 @@
 
                     <div class="form-group">
                         <label for="replacementTime">Delivery Time</label>
-                        <input type="time" name="time" class="form-control" id="replacementTime" required>
+                        <input type="time" name="time" class="form-control" id="replacementTime" required value="{{old('time')}}">
                         @error('time')
                         <p class="text-danger text-lg mt-1">{{$message}}</p>
                         @enderror
@@ -45,7 +45,7 @@
 
                     <div class="form-group">
                         <label for="paymentMethod">Payment Method</label>
-                        <select class="custom-select form-control" id="paymentMethod" name="payment_method" required>
+                        <select class="custom-select form-control" id="paymentMethod" name="payment_method" required value="{{old('paymentMethod')}}">
                             <option value="">Choose...</option>
                             <option value="Online">Online</option>
                             <option value="COD">Cash on Delivery</option>
