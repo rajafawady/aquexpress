@@ -40,23 +40,39 @@ class SupplierController extends BaseController
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
     }
 
-    public function createUser(Request $request){
-        $formFields=$request->validate(
-            [
-                'companyName'=>'required',
-                'phone'=>'required',
-                'email'=>['required','email', Rule::unique('suppliers', 'email')],
-                'password'=>'required | confirmed | min:6',
-                'address'=>'required',
-            ]
-            );
-            // Hash Password
+    public function createUser(Request $request)
+    {
+        // Validate form fields including file uploads
+        $formFields = $request->validate([
+            'companyName' => 'required',
+            'phone' => 'required',
+            'email' => ['required', 'email', Rule::unique('suppliers', 'email')],
+            'password' => 'required | confirmed | min:6',
+            'address' => 'required',
+            'cnicFront' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming it's an image file
+            'cnicBack' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming it's an image file
+        ]);
+
+        // Hash Password
         $formFields['password'] = bcrypt($formFields['password']);
+
+        // Handle file uploads and store paths
+        $cnicFrontPath = $request->file('cnicFront')->store('cnic_pics', 'public');
+        $cnicBackPath = $request->file('cnicBack')->store('cnic_pics', 'public');
+
+        // Add file paths to the form fields
+        $formFields['cnicFront'] = $cnicFrontPath;
+        $formFields['cnicBack'] = $cnicBackPath;
+
         // Create User
         $user = Supplier::create($formFields);
+
+        // Log in the user using the supplier guard
         Auth::guard('supplier')->login($user);
+
+        // Redirect the user to the /supplier route with a success message
         return redirect('/supplier')->with('message', 'User created and logged in');
-     }
+    }
 
     public function logout(Request $request){
         Auth::guard('supplier')->logout();

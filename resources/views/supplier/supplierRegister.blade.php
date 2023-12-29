@@ -8,7 +8,7 @@
     <section class="sign-in-section">
         <div class="sign-up bounce-in-left" id="sign-up">
             <h2 class="text-center">Sign Up</h2>
-            <form method="POST" action="/supplier/registration">
+            <form method="POST" action="/supplier/registration" enctype="multipart/form-data">
                 @csrf
                 <!-- Company Name -->
                 <div class="form-group">
@@ -39,7 +39,7 @@
 
                 
 
-                <!-- CNIC Pictures 
+                <!-- CNIC Pictures--> 
                 <div class="form-group">
                     <label for="cnicFront">CNIC Picture (Front)</label>
                     <input type="file" class="form-control-file" id="cnicFront" name="cnicFront">
@@ -48,7 +48,7 @@
                 <div class="form-group">
                     <label for="cnicBack">CNIC Picture (Back)</label>
                     <input type="file" class="form-control-file" id="cnicBack" name="cnicBack">
-                </div> -->
+                </div> 
 
                 <!-- Address -->
                 <div class="form-group">
