@@ -26,6 +26,14 @@ class SupplierController extends BaseController
     public function showLoginForm(){
         return view('/supplier/supplierLogin');
     }
+    
+    public function showProfile(){
+        return view('/supplier/profile',['user'=>auth()->user()]);
+    }
+
+    public function showEditProfileForm(){
+        return view('/supplier/editprofile',['user'=>auth()->user()]);
+    }
 
     public function authenticate(Request $request){
         $formFields=$request->validate([
