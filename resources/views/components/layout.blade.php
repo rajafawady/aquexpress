@@ -39,7 +39,7 @@
               </button>
               <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                   <ul class="navbar-nav">
-                    @auth
+                    @if(auth()->guard('supplier')->user())
                       <li class="nav-item {{(isset($active) && $active=='home')?"active":""}} ">
                           <a class="nav-link" href="/supplier">Home</a>
                       </li>
@@ -57,11 +57,20 @@
                       <li class="nav-item {{(isset($active) && $active=='stats')?"active":""}}">
                         <a class="nav-link" href="/supplier/stats">Stats</a>
                     </li>                       
-                      
-                      
-                    <li class="nav-item border-2 border-white rounded-lg">
-                        <a class="nav-link" href="/supplier/logout">Logout</a>
-                    </li>
+                           <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="fa-regular fa-user"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown" style="background-color: #352f44;">
+                                    <li><a class="dropdown-item text-white" href="/profile">View Profile</a></li>
+                                    <li><a class="dropdown-item text-white" href="/logout">Logout</a></li>
+                                </ul>
+                            </li>
+                        
+                                
+                                {{-- <li class="nav-item border-2 border-white rounded-lg">
+                                    <a class="nav-link" href="/supplier/logout">Logout</a>
+                                </li> --}}
                     
                       @else
                       <li class="nav-item">
@@ -98,13 +107,17 @@
                       <img width="20%" src="{{asset('/images/logo/transparent_white.png')}}" alt="logo">
                   </div>
                   <div class="footer-links d-flex flex-wrap justify-content-center">
-                      <a href="index.html" class="text-white mx-2">Home </a>
-                      <a href="index.html#features" class="text-white mx-2">Features </a>
-                      <a href="about.html" class="text-white mx-2">About Us </a>
-                      <a href="contact.html" class="text-white mx-2">Contact Us </a>
-                      <a href="index.html#faq" class="text-white mx-2">FAQ </a>
-                      <a href="login.html" class="text-white mx-2">Sign In </a>
-                      <a href="register.html" class="text-white mx-2">Register Now </a>
+                        @if(auth()->guard('supplier')->user())
+                      <a href="/supplier/index.html" class="text-white mx-2">Home </a>
+                      <a href="/supplier/neworders" class="text-white mx-2">New Orders </a>
+                      <a href="/supplier/pendingorders" class="text-white mx-2">Pending Orders</a>
+                      <a href="/supplier/completedorders" class="text-white mx-2">Completed Orders</a>
+                      <a href="/supplier/stats" class="text-white mx-2">Stats</a>
+                      <a href="/supplier/supplierProfile" class="text-white mx-2">Profile</a>
+                      @else
+                      <a href="/supplier/supplierLogin" class="text-white mx-2">Sign In </a>
+                      <a href="/supplier/supplierRegister" class="text-white mx-2">Register</a>
+                      @endauth
                   </div>
               </div>
   

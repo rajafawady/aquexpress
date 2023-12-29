@@ -23,6 +23,10 @@
               <a class="navbar-brand w-25" href="/">
                   <img src="{{asset("/images/logo/transparent_white.png")}}" width="25%" alt="logo">
               </a>
+              @auth
+              
+           
+                    @endauth
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                   aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -36,6 +40,9 @@
                       @auth
                       <li class="nav-item">
                         <a class="nav-link {{(isset($active) && $active=='auto-order')?"active":""}}" href="/auto-order">Auto Ordering</a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link {{(isset($active) && $active=='order')?"active":""}}" href="/order">Order Now</a>
                     </li>
                     @endauth
                     
@@ -54,9 +61,28 @@
                       
                       
                       @auth
+                      
+
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="fa-regular fa-user"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown" style="background-color: #352f44;">
+                                    <li><a class="dropdown-item text-white" href="/profile">View Profile</a></li>
+                                    <li><a class="dropdown-item text-white" href="/logout">Logout</a></li>
+                                </ul>
+                            </li>
+                        
+
+                      
+                      {{-- <li class="nav-item border-2 border-white rounded-lg d-flex justify-content-center align-items-center">
+                        <a class="nav-link" href="/profile">
+                        <i class="fa-regular fa-user "></i></a>
+                        </li>
+
                       <li class="nav-item border-2 border-white rounded-lg">
                         <a class="nav-link" href="/logout">Logout</a>
-                        </li>
+                        </li> --}}
                       @else
                       <li class="nav-item">
                         <a class="nav-link {{(isset($active) && $active=='signin')?"active":""}}" href="/login">Sign In</a>
@@ -94,11 +120,22 @@
                 <div class="footer-links d-flex flex-wrap justify-content-center">
                     <a href="/" class="text-white mx-2">Home </a>
                     <a href="index.html#features" class="text-white mx-2">Features </a>
+                    @auth
+                    <a href="/auto-order" class="text-white mx-2">Auto Ordering </a>
+                    <a href="/order" class="text-white mx-2">Order Now </a>
+                    @endauth
                     <a href="/about" class="text-white mx-2">About Us </a>
                     <a href="/contact" class="text-white mx-2">Contact Us </a>
                     <a href="index.html#faq" class="text-white mx-2">FAQ </a>
-                    <a href="login.html" class="text-white mx-2">Sign In </a>
-                    <a href="register.html" class="text-white mx-2">Register Now </a>
+                    @auth
+                        <a href="/profile" class="text-white mx-2 d-flex align-items-center">Profile</a>
+                    @else
+                        <a href="login.html" class="text-white mx-2">Sign In </a>
+                        <a href="register.html" class="text-white mx-2">Register Now </a>
+
+
+                    @endauth
+                    
                 </div>
             </div>
 
