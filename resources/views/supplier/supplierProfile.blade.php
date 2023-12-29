@@ -7,22 +7,22 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-4">
-                        <img id="profileImage" src="https://placekitten.com/200/200" alt="User Avatar" class="img-fluid rounded-circle">
+                    <div class="col-md-4 text-center">
+                        <img id="profileImage" src="{{isset($user->picture)?asset('/storage/'.$user->picture) : "https://placekitten.com/200/200"}}" width="70%" alt="User Avatar" class="img-fluid rounded-circle">
                     </div>
                     <div class="col-md-8">
-                        <h3 id="profileName">{{$user->name}}</h3>
+                        <h3 id="profileName">{{$user->companyName}}</h3>
                         <p>Email: <span id="profileEmail">{{$user->email}}</span></p>
                         <p>Phone: <span id="profilePhone">{{$user->phone}}</span></p>
                         <p>Address: <span id="profileLocation">{{$user->address}}</span></p>
                     </div>
                 </div>
             </div>
-            <div class="card-footer">
+            <div class="card-footer row justify-content-between">
                 <a href="/supplier/profile/edit" class="btn text-white" style="background-color: #352f44;">Edit Profile</a>
                 <form action="/supplier/profile/delete" method="POST" id="deleteForm">
                     @csrf
-                    <button class="btn btn-danger float-right" id="deleteButton">Delete Account</button>
+                    <button class="btn btn-danger" id="deleteButton">Delete Account</button>
                 </form>
             </div>
         </div>
@@ -41,6 +41,6 @@
         });
     </script>
     
-</x-layout>
+</x-customer-layout>
 
 

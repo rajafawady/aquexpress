@@ -65,7 +65,7 @@
                     </div>
 
 
-                    <button type="submit" class="btn btn-block" style="background-color: #352f44;" >Order</button>
+                    <button type="submit" class="btn btn-block text-white" style="background-color: #352f44;" >Order</button>
                 </form>
             </div>
         </div>

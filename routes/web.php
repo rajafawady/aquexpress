@@ -29,6 +29,8 @@ Route::prefix('supplier')->group(function () {
 
     // Supplier Authenticated Routes
     Route::middleware(['auth:supplier'])->group(function () {
+        Route::get('/location/{latitude}/{longitude}', [SupplierController::class, 'getLocationName']);
+
         Route::get('/', [SupplierController::class, 'supplierHome']);
         Route::get('/logout', [SupplierController::class, 'logout']);
 
@@ -79,6 +81,7 @@ Route::middleware(['auth:web'])->group(function () {
     Route::post('/auto-order', [CustomerController::class, 'autoOrder']);
 
     // Route for Order Details
+    Route::get('/order', [CustomerController::class, 'showOrderForm']);
     Route::get('/orderdetails', [CustomerController::class, 'orderDetails']);
 
     // Route for Checkout

@@ -7,10 +7,14 @@ use App\Models\Order;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 class SupplierController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
@@ -28,7 +32,10 @@ class SupplierController extends BaseController
     }
     
     public function showProfile(){
-        return view('/supplier/supplierProfile',['user'=>auth()->user()]);
+        $user=Auth::guard('supplier')->user();
+        $locationName= $this->getLocationName($user->address);
+        $user->address=$locationName;
+        return view('/supplier/supplierProfile',['user'=>$user]);
     }
 
     public function showEditProfileForm(){
@@ -41,6 +48,8 @@ class SupplierController extends BaseController
             'password'=>'required',
         ]);
         if(Auth::guard('supplier')->attempt($formFields)){
+            $locationName= $this->getLocationName(auth()->guard('supplier')->user()->address);
+            Auth::guard('supplier')->user()->address=$locationName;
             $request->session()->regenerate();
             return redirect('/supplier')->with('message', 'You are logged in as a Supplier!');
         }
@@ -77,7 +86,6 @@ class SupplierController extends BaseController
 
         // Log in the user using the supplier guard
         Auth::guard('supplier')->login($user);
-
         // Redirect the user to the /supplier route with a success message
         return redirect('/supplier')->with('message', 'User created and logged in');
     }
@@ -267,14 +275,18 @@ class SupplierController extends BaseController
 
             $formFields=$request->validate(
                 [
-                    'name'=>'required',
+                    'companyName'=>'required',
                     'phone'=>'required',
                     'email'=>['required','email'],
-                    'password'=>'required | confirmed | min:6',
                     'address'=>'required',
-                    'picture'=>''
                 ]
                 );
+    
+                if ($request->hasFile('picture')) {
+                    $profile = $request->file('picture')->store('uploads', 'public');
+                    $formFields['picture'] = $profile;
+                }
+                
             // Get the currently authenticated user
             $user = Auth::guard('supplier')->user();
 
@@ -282,7 +294,7 @@ class SupplierController extends BaseController
             $user->update($formFields);
 
             // Redirect to the profile page with a success message
-            return redirect()->route('/supplier/profile')->with('message', 'Profile updated successfully!');
+            return redirect('/supplier/profile')->with('message', 'Profile updated successfully!');
         }
 
 
@@ -294,13 +306,7 @@ class SupplierController extends BaseController
                 try {
                     // Use a transaction to ensure atomicity
                     DB::beginTransaction();
-
-                    // Log to help debugging
-                    Log::info('Attempting to delete user: ' . $user->id);
-
-                    // Delete related records in autoorders table
-                    $user->autoOrders()->delete();
-
+                    
                     // Delete related records in orders table
                     $user->orders()->delete();
 
@@ -327,6 +333,35 @@ class SupplierController extends BaseController
 
             return back()->with('message', 'User not found.');
         }
+
+
+
+    public function getLocationName($address)
+    {
+        // Replace 'YOUR_API_KEY' with your actual Google Maps API key
+        $apiKey = 'AIzaSyAIB_S7iWfKDLTyUs0Siq-DvgXmDf4vdjA';
+        $baseUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
+
+        // Make a request to the Geocoding API
+        $response = Http::get($baseUrl, [
+            'latlng' => "$address",
+            'key' => $apiKey,
+        ]);
+
+        // Decode the JSON response
+        $data = $response->json();
+
+        // Check if the request was successful
+        if ($response->successful() && $data['status'] === 'OK') {
+            // Extract the formatted address from the results
+            $formattedAddress = $data['results'][0]['formatted_address'];
+
+            return $formattedAddress;
+        }
+
+        // Handle the case where the request was not successful
+        return null;
+    }
 
 
 }

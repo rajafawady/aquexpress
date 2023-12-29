@@ -3,7 +3,7 @@
     margin-top: 2em;
 }
 
-.container {
+.order-container {
     background-image: url("../images/tank.png");
     background-size: contain;
     background-repeat: no-repeat;
@@ -11,7 +11,7 @@
     padding: 2em;
 }
 
-.container .form {
+.order-container .form {
     width: 100%;
     min-height: 60vh;
     background: rgba(255, 255, 255, 0.7);
@@ -46,7 +46,7 @@ select {
 
 
 .submit-button {
-    background-color: #352f44;
+    background-color: #352f44 !important;
 }
 
 .btn:hover {
