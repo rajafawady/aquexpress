@@ -20,7 +20,7 @@ class SupplierController extends BaseController
     }
 
     public function showRegistrationForm(){
-        return view('/supplier/index');
+        return view('/supplier/supplierRegister');
     }
 
     public function showLoginForm(){
