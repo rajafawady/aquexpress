@@ -8,7 +8,6 @@ Before you begin, ensure you have the following installed on your local machine:
 
 - [PHP](https://www.php.net/) (>= 7.4)
 - [Composer](https://getcomposer.org/)
-- [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/) (for managing frontend dependencies)
 - [MySQL](https://www.mysql.com/) or any other database of your choice
 
