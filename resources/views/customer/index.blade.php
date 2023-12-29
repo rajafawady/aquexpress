@@ -1,20 +1,22 @@
+<link rel="stylesheet" href="{{asset('styles/style.css')}}">
+
 <x-customer-layout active='home'>
   
     <Section>
       <!--Hero Section Start-->
           <div class="hero-container">
-              <div class="hero-content">
+              <div class="hero-content p-3">
                 <div class="iphone-container bounce-in-left">
                     <img src="images/splash.png" alt="">
                   </div>
                   <div class="bounce-in-right">
                     <div class="hero-text">
-                      <h1 class="white center">Out Of Water?</h1>
-                      <p class="white"><strong class="AquExpress">AquExpress</strong> Will Get It Delivered Whenever You Want</p>
+                      <h1 class="text-white text-center">Out Of Water?</h1>
+                      <p class="text-white"><strong class="AquExpress">AquExpress</strong> Will Get It Delivered Whenever You Want</p>
                     </div>
-                    <div class="flex-col">
-                      <p class="center white">Download Our App and Get Tanked On Time</p>
-                      <div class="download-icons flex">
+                    <div class="flex-column">
+                      <p class="text-center text-white">Download Our App and Get Tanked On Time</p>
+                      <div class="download-icons d-flex">
                         <a href="#"><img src="images/ios.png" alt=""></a>
                         <a href="#"><img src="images/android.png" alt=""></a>
                       </div> 
@@ -24,28 +26,7 @@
               
               </div>
             <!--Hero Section End-->
-            
-            
-            <!--Book Now Starts-->
-            <div>
-              <div class="book-heading text-center">
-                <h2>Your Time, Your Choice, Book and Rejoice</h2>
-                <hr>
-                <div class="order-btn d-flex col-10 justify-content-end mt-5" role="group" aria-label="Order Buttons" >
-                  <button type="button" class="btn text-white mr-3" id="orderNowBtn">Order Now</button>
-                      <button type="button" class="btn  text-white mr-3" id="scheduleOrderBtn">Schedule Your Order</button>
-                    </div>
-                    
-                  </div>
-                  <div class="form-container" id="order-form">
-                    {{--}}Will be Rendered Dynamically Through Js{{--}}
-                  </div>
-            </div>
- 
-  
-  
-          <!--Book Now Ends-->
-  
+              
           <!--Features Start-->
           <div class="features" id="features">
             <div id="demo-wrapper" class="text-center">
@@ -126,9 +107,9 @@
           
           <!--Locations Container Starts-->
           <div class="">
-            <h2 class="center heading">From Here To There, We Got You Covered</h2>
+            <h2 class="center heading text-center">From Here To There, We Got You Covered</h2>
             <hr>
-            <div class="map-container center">
+            <div class="map-container text-center">
               <p>We're serving in more than 20 areas at Islamabad and Rawalpindi</p>
               <img src="images/map.png" alt="">
             </div>
@@ -137,7 +118,7 @@
           
           <!--FAQs Start-->
           <div>
-            <h2 class="center">Frequently Asked Questions</h2>
+            <h2 class="text-center">Frequently Asked Questions</h2>
             <hr>
           </div>
           <div class="main-container">

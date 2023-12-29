@@ -16,152 +16,112 @@ body{
  
 
 /* hero section starts */
-  .hero-container{
-    background-image: url("../images/tap.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top left;
-    min-height: 87vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    overflow-x: hidden;
-  }
-   .hero-content{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 10px;
-    animation: fadeIn 2s ease-out;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    width: 75vw;
-    height: 70vh;
+.bounce-in-right {
+  animation: bounce-in-right 2s ease;
+}
+
+.bounce-in-left {
+  animation: bounce-in-left 2s ease;
+}
+
+
+@keyframes bounce-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(2000px);
   }
 
-  .hero-text h1{
-    font-size: 30px;
-    font-weight:600;
-    
-  }
-  .hero-content p{
-    font-size: 20px;
-  }
-  .AquExpress{
-    font-size: 25px;
-    font-weight:900;
-    color: #352f44;
-    -webkit-text-stroke: 0.4px white;
-  }
-  
-  .iphone-container img{
-    width: 21vw;
-    height: 80vh;
-    animation: bounceLeft 2s infinite;
+  60% {
+    opacity: 1;
+    transform: translateX(-30px);
   }
 
-  .download-icons{
-    justify-content: space-evenly;
-    column-gap: 10px;
+  80% {
+    transform: translateX(10px);
   }
 
-  .download-icons a img{
-    width: 150px; 
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-2000px);
   }
 
-/*booking form*/
-.book-heading{
-  margin-top: 2em;
-}
-.order-btn button{
-  background-color: #312c3f;
-}
-.form-container{
-  background-image: url("../images/tank.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center left;
-  display: flex;
-  justify-content: flex-end;
-  padding: 2em;
-}
-.form-container .form{
-  width: 40%;
-  background: rgba(255,255,255,0.7);
-  border-radius: 10px;
-  padding: 1.5em;
-  border: 2px solid #352f44;
-}
-.form-group {
-    margin: 10px 0;
-}
+  60% {
+    opacity: 1;
+    transform: translateX(30px);
+  }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #312c3f;
-    font-size: 19px;
-    font-weight: bold;
-}
+  80% {
+    transform: translateX(-10px);
+  }
 
-input, textarea,select{
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 600;
-    color: grey;
+  100% {
+    transform: translateX(0);
+  }
 }
+ /* hero section starts */
+ .hero-container {
+   background-image: url("../images/tap.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: top left;
+   min-height: 87vh;
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   overflow-x: hidden;
+ }
 
-.submit-button {
-    background-color: #352f44;
-}
+ .hero-content {
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   padding: 10px;
+   animation: fadeIn 2s ease-out;
+   background-color: rgba(0, 0, 0, 0.5);
+   border-radius: 10px;
+   border: 1px solid #ccc;
+   width: 75vw;
+   height: 70vh;
+ }
 
-/*form ends */
+ .hero-text h1 {
+   font-size: 30px;
+   font-weight: 600;
 
-#demo-wrapper {
-  height: 100vh;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-}
+ }
 
-.row{
-  display: flex;
-  flex-flow:row ;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  column-gap: 15px;
-  margin-left: 2%;
-  margin-right: 2%;
-}
-.service {
-  width: 25%;
-  border-radius: 0.35em;
-  box-shadow: 2px 2px 150px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-.service img{
-  width: 80px;
-  margin-top: 2em;
-}
-.service p {
-  margin: 0;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  text-align: justify;
-  font-size: 1.125em;
-  line-height: 1.25;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-}
+ .hero-content p {
+   font-size: 20px;
+ }
+
+ .AquExpress {
+   font-size: 25px;
+   font-weight: 900;
+   color: #352f44;
+   -webkit-text-stroke: 0.4px white;
+ }
+
+ .iphone-container img {
+   width: 21vw;
+   height: 80vh;
+   animation: bounceLeft 2s infinite;
+ }
+
+ .download-icons {
+   justify-content: space-evenly;
+   column-gap: 5px;
+ }
+
+ .download-icons a img {
+   width: 80%;
+ }
+
 
 /* map section*/
 .map-container{
@@ -169,7 +129,7 @@ input, textarea,select{
 }
 .map-container img{
   display: block;
-  width: 80%;
+  width: 60%;
   height: 75vh;
   margin: auto;
   border-radius: 10px;
@@ -280,11 +240,13 @@ input, textarea,select{
   transform: rotate(180deg);
   transition: transform 0.6s ease-in-out;
 }
-
-
-
   
-
+@media (max-width:990px) {
+  .iphone-container {
+      display: none;
+    }
+  
+}
 
 
 
@@ -302,36 +264,8 @@ input, textarea,select{
     justify-content: center;
     text-align: center;
   }
-  .iphone-container{
-    display: none ;
-  }
-  #demo-wrapper {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-  }
-  .row{
-    display: block;
-    margin: auto;
-  }
-  .service {
-    width: 100%;
-    border-radius: 0.35em;
-    box-shadow: 2px 2px 150px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    margin: auto;
-  }
 
-  
-  .handshake{
-    width: 30%;
-  }
+
 
   .map-container{
     padding: 1em;
