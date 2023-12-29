@@ -30,11 +30,11 @@
                     </div>
                     <div class="form-group">
                         <label for="time">Time</label>
-                        <input class="form-control" type="time" id="time" name="time" required>
+                        <input class="form-control" type="time" id="time" name="time" required value="{{old('time')}}">
                     </div>
                     <div class="form-group">
                         <label for="date">Date</label>
-                        <input class="form-control" type="date" id="date" name="date" required>
+                        <input class="form-control" type="date" id="date" name="date" required value="{{old('date')}}">
                     </div>
                     <div class="right">
                         <button class="submit-button btn text-white" style="background-color: #352f44;" type="submit">Book Your Tank</button>
@@ -78,11 +78,11 @@
               </div>
               <div class="form-group">
                 <label for="time">Time</label>
-                <input type="time" id="time" name="time" required>
+                <input type="time" id="time" name="time" required value="{{old('time')}}">
               </div>
               <div class="form-group">
                 <label for="date">Date</label>
-                <input type="date" id="date" name="date" required>
+                <input type="date" id="date" name="date" required value="{{old('date')}}">
               </div>
               <div class="right">
                 <button class="submit-button btn text-white" type="submit">Book Your Tank</button>

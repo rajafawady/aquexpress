@@ -62,8 +62,8 @@
                                   <i class="fa-regular fa-user"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown" style="background-color: #352f44;">
-                                    <li><a class="dropdown-item text-white" href="/profile">View Profile</a></li>
-                                    <li><a class="dropdown-item text-white" href="/logout">Logout</a></li>
+                                    <li><a class="dropdown-item text-white" href="/supplier/profile">View Profile</a></li>
+                                    <li><a class="dropdown-item text-white" href="/supplier/logout">Logout</a></li>
                                 </ul>
                             </li>
                         
@@ -74,10 +74,10 @@
                     
                       @else
                       <li class="nav-item">
-                        <a class="nav-link {{(isset($active) && $active=='signin')?"active":""}}" href="/login">Sign In</a>
+                        <a class="nav-link {{(isset($active) && $active=='signin')?"active":""}}" href="/supplier/login">Sign In</a>
                         </li>
                         <li class="nav-item {{(isset($active) && $active=='register')?"active":""}}">
-                            <a class="register-anchor nav-link" href="/register">
+                            <a class="register-anchor nav-link" href="/supplier/register">
                                 Register Now
                             </a>
                         </li>
@@ -108,15 +108,15 @@
                   </div>
                   <div class="footer-links d-flex flex-wrap justify-content-center">
                         @if(auth()->guard('supplier')->user())
-                      <a href="/supplier/index.html" class="text-white mx-2">Home </a>
+                      <a href="/supplier/index" class="text-white mx-2">Home </a>
                       <a href="/supplier/neworders" class="text-white mx-2">New Orders </a>
                       <a href="/supplier/pendingorders" class="text-white mx-2">Pending Orders</a>
                       <a href="/supplier/completedorders" class="text-white mx-2">Completed Orders</a>
                       <a href="/supplier/stats" class="text-white mx-2">Stats</a>
                       <a href="/supplier/supplierProfile" class="text-white mx-2">Profile</a>
                       @else
-                      <a href="/supplier/supplierLogin" class="text-white mx-2">Sign In </a>
-                      <a href="/supplier/supplierRegister" class="text-white mx-2">Register</a>
+                      <a href="/supplier/login" class="text-white mx-2">Sign In </a>
+                      <a href="/supplier/register" class="text-white mx-2">Register</a>
                       @endauth
                   </div>
               </div>

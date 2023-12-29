@@ -12,7 +12,7 @@
 
                     <div class="mb-3">
                         <label for="address">Address</label>
-                        <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="address" value="{{auth()->user()->address}}" required>
+                        <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="address" value="{{auth()->user()->address}}" required value="{{old('address')}}">
                         @error('address')
                         <p class="text-danger text-lg mt-1">{{$message}}</p>
                         @enderror
@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="col-sm-6 mb-3">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com" name="email" value="{{auth()->user()->email}}" required>
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com" name="email" value="{{auth()->user()->email}}" required value="{{old('email')}}">
                             @error('email')
                             <p class="text-danger text-lg mt-1">{{$message}}</p>
                             @enderror
@@ -30,7 +30,7 @@
     
                         <div class="col-sm-6 mb-3">
                             <label for="phone">Phone</label>
-                            <input type="tel" class="form-control" id="phone" placeholder="123-456-7890" name="phone" value="{{auth()->user()->phone}}" required>
+                            <input type="tel" class="form-control" id="phone" placeholder="123-456-7890" name="phone" value="{{auth()->user()->phone}}" required value="{{old('phone')}}">
                             @error('phone')
                                 <p class="text-danger text-lg mt-1">{{$message}}</p>
                                 @enderror
@@ -41,14 +41,14 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="time">Time</label>
-                            <input type="time" class="form-control" id="time" value="{{$time}}" name= "time" required>
+                            <input type="time" class="form-control" id="time" value="{{$time}}" name= "time" required value="{{old('time')}}">
                             @error('time')
                             <p class="text-danger text-lg mt-1">{{$message}}</p>
                             @enderror
                         </div>  
                         <div class="col-md-6 mb-3">
                             <label for="date">Date</label>
-                            <input type="date" class="form-control" id="date" name="date" value="{{$date}}"  required>
+                            <input type="date" class="form-control" id="date" name="date" value="{{$date}}"  required value="{{old('date')}}">
                         </div>
                     </div>
 
@@ -58,7 +58,7 @@
 
                     <div class="mb-3">
                         <label for="paymentMethod">Payment Method</label>
-                        <select class="custom-select d-block w-100" id="paymentMethod" name="payment_method" required>
+                        <select class="custom-select d-block w-100" id="paymentMethod" name="payment_method" required value="{{old('payment_method')}}">
                             <option value="">Choose...</option>
                             <option value="Online">Online</option>
                             <option value="COD">Cash on Delivery</option>

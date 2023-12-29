@@ -14,7 +14,7 @@
                 <div class="form-group">
                     <label for="companyName">Enter Company Name</label>
                     <input type="text" class="form-control" id="companyName" placeholder="Company Name"
-                        name="companyName">
+                        name="companyName" value="{{old('companyName')}}">
                         @error('companyName')
                   <p class="text-danger text-lg mt-1">{{$message}}</p>
                   @enderror
@@ -23,7 +23,7 @@
                 <!-- Phone Number -->
                 <div class="form-group">
                     <label for="phone">Phone No.</label>
-                    <input type="text" class="form-control" placeholder="+923XXXXXXXXX" id="phone" name="phone">
+                    <input type="text" class="form-control" placeholder="+923XXXXXXXXX" id="phone" name="phone" value="{{old('phone')}}">
                     @error('phone')
                   <p class="text-danger text-lg mt-1">{{$message}}</p>
                   @enderror
@@ -31,7 +31,7 @@
                 <!-- Email  -->
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" class="form-control" placeholder="xyz@domain.com" id="email" name="email">
+                    <input type="text" class="form-control" placeholder="xyz@domain.com" id="email" name="email" value="{{old('email')}}">
                     @error('email')
                   <p class="text-danger text-lg mt-1">{{$message}}</p>
                   @enderror
@@ -42,18 +42,18 @@
                 <!-- CNIC Pictures--> 
                 <div class="form-group">
                     <label for="cnicFront">CNIC Picture (Front)</label>
-                    <input type="file" class="form-control-file" id="cnicFront" name="cnicFront">
+                    <input type="file" class="form-control-file" id="cnicFront" name="cnicFront" value="{{old('cnicFront')}}">
                 </div>
 
                 <div class="form-group">
                     <label for="cnicBack">CNIC Picture (Back)</label>
-                    <input type="file" class="form-control-file" id="cnicBack" name="cnicBack">
+                    <input type="file" class="form-control-file" id="cnicBack" name="cnicBack" value="{{old('cnicBack')}}">
                 </div> 
 
                 <!-- Address -->
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="hidden" name="address" id="address">
+                    <input type="hidden" name="address" id="address" value="{{old('address')}}">
                     <x-googlemap />
                     @error('address')
                   <p class="text-danger text-lg mt-1">{{$message}}</p>
@@ -63,7 +63,7 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <div class="input-group">
-                        <input type="password" class="form-control" id="password" placeholder="*******" name="password">
+                        <input type="password" class="form-control" id="password" placeholder="*******" name="password" value="{{old('password')}}">
 
                         <div class="input-group-append pointer" onclick="togglePasswordVisibility('password')">
                             <span class="input-group-text">
