@@ -5,45 +5,23 @@
 
 
     <!--Book Now Starts-->
-    <div class="container ">
+    <div class="container order-container">
         <div class="book-heading text-center">
-            <h2>Your Time, Your Choice, Book and Rejoice</h2>
+            <h2 class="bg-white p-2 rounded-lg">Your Time, Your Choice, Book and Rejoice</h2>
             <hr>
             
     
         </div>
-        <div  >
-            
             <div>
                 <div  class="btn-group " role="group" aria-label="Order Buttons">
                     <button type="button" class="btn text-white" style="background-color: #352f44;" id="orderNowBtn">Order Now</button>
                     <button type="button" class="btn  text-white" style="background-color: #352f44;" id="scheduleOrderBtn">Schedule Order</button>
                 </div>
                 <div id="order-form">
-                <form class="form">
-                    <div class="form-group">
-                        <label for="quantity">Quantity</label>
-                        <Select class="form-control" id="quantity">
-                            <option value="Full">Half Tank</option>
-                            <option value="Full">Full Tank</option>
-                        </Select>
-                    </div>
-                    <div class="form-group">
-                        <label for="time">Time</label>
-                        <input class="form-control" type="time" id="time" name="time" required value="{{old('time')}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Date</label>
-                        <input class="form-control" type="date" id="date" name="date" required value="{{old('date')}}">
-                    </div>
-                    <div class="right">
-                        <button class="submit-button btn text-white" style="background-color: #352f44;" type="submit">Book Your Tank</button>
-                    </div>
-                    
-                </form>
+                
                 </div>
             </div>
-        </div>
+
     </div>
             <script>
           var container=document.getElementById("order-form");
@@ -56,7 +34,7 @@
                 </Select>
               </div>
               <div class="right">
-                <button class="submit-button btn text-white" type="submit">Book Your Tank</button>
+                <button class="btn submit-button text-white" type="submit">Book Your Tank</button>
               </div>
               
             </form>`;

@@ -20,6 +20,7 @@ class CreateSuppliersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('address');
+            $table->string('picture')->nullable();
             $table->string('cnic_front')->nullable();
             $table->string('cnic_back')->nullable();
             $table->rememberToken();

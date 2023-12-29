@@ -61,26 +61,16 @@
                       @auth
                       
 
-                          <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <i class="fa-regular fa-user"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown" style="background-color: #352f44;">
-                                    <li><a class="dropdown-item text-white" href="/profile">View Profile</a></li>
-                                    <li><a class="dropdown-item text-white" href="/logout">Logout</a></li>
-                                </ul>
-                            </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-user"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="background-color: #352f44;">
+                            <li><a class="dropdown-item text-white" href="/profile">View Profile</a></li>
+                            <li><a class="dropdown-item text-white" href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
                         
-
-                      
-                      {{-- <li class="nav-item border-2 border-white rounded-lg d-flex justify-content-center align-items-center">
-                        <a class="nav-link" href="/profile">
-                        <i class="fa-regular fa-user "></i></a>
-                        </li>
-
-                      <li class="nav-item border-2 border-white rounded-lg">
-                        <a class="nav-link" href="/logout">Logout</a>
-                        </li> --}}
                       @else
                       <li class="nav-item">
                         <a class="nav-link {{(isset($active) && $active=='signin')?"active":""}}" href="/login">Sign In</a>

@@ -3,10 +3,14 @@
 <!-- Edit Profile  -->
             <div class="container my-4">
                 <!-- Edit profile form goes here -->
-                <form id="profileEditForm" action="/profile/edit" method="POST">
+                <form id="profileEditForm" action="/profile/edit" method="POST" enctype="multipart/form-data">
                     @csrf
+                    
                     <div class="form-group d-flex flex-column">
                         <label for="editName">Update Profile Photo:</label>
+                        <div class="col-md-4">
+                            <img id="profileImage" src="{{isset($user->picture)?asset('/storage/'.$user->picture) : "https://placekitten.com/200/200"}}" width="150px" alt="User Avatar" class="img-fluid rounded-circle">
+                        </div>
                         <input type="file" id="picture" class="mt-2" accept="image/*" value="{{$user->picture}}" name="picture">
                         @error('picture')
                             <p class="text-danger text-lg mt-1">{{$message}}</p>

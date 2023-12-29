@@ -11,6 +11,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -44,8 +45,15 @@ class CustomerController extends BaseController
         return view('/customer/auto-order');
     }
 
+    public function showOrderForm(){
+        return view('/customer/order');
+    }
+
     public function showProfile(){
-        return view('/customer/profile',['user'=>auth()->user()]);
+        $user=Auth::user();
+        $locationName= $this->getLocationName($user->address);
+        $user->address=$locationName;
+        return view('/customer/profile',['user'=>$user]);
     }
 
     public function showEditProfileForm(){
@@ -105,7 +113,9 @@ class CustomerController extends BaseController
         //Storing Delivery Time 1 hour After Current Time
         $time = $request->filled('time') ? $request->time : $formattedTime;
         $date = $request->filled('date') ? $request->date : now()->toDateString();
-
+        $user=auth()->user();
+        $locationName= $this->getLocationName($user->address);
+        $user->address=$locationName;
         if($quantity){
             return view('/customer/orderdetails', compact('quantity','time','date'));
         }else{
@@ -156,6 +166,8 @@ class CustomerController extends BaseController
     public function autoOrder(Request $request)
     {
         $user=auth()->user();
+        $locationName= $this->getLocationName($user->address);
+        $user->address=$locationName;
         // Validate the form data
         $validatedData = $request->validate([
             'payment_method' => 'required|in:Online,COD',
@@ -164,7 +176,6 @@ class CustomerController extends BaseController
             'quantity' => 'required|numeric',
             'amount' => 'required|numeric',
         ]);
-
         $order = new Autoorder([
             'address' => $user->address,
             'phone' => $user->phone,
@@ -185,6 +196,7 @@ class CustomerController extends BaseController
 
         public function updateProfile(Request $request)
         {
+         
             $formFields=$request->validate(
                 [
                     'name'=>'required',
@@ -194,11 +206,11 @@ class CustomerController extends BaseController
                     'picture'=>''
                 ]
                 );
-                
-                if($formFields['picture']){
-                    $profile = $request->file('picture')->store('images', 'public');
+                if ($request->hasFile('picture')) {
+                    $profile = $request->file('picture')->store('uploads', 'public');
                     $formFields['picture'] = $profile;
                 }
+                
                 
             // Get the currently authenticated user
             $user = Auth::user();
@@ -252,6 +264,33 @@ class CustomerController extends BaseController
 
             return back()->with('message', 'User not found.');
         }
+
+        public function getLocationName($address)
+    {
+        // Replace 'YOUR_API_KEY' with your actual Google Maps API key
+        $apiKey = 'AIzaSyAIB_S7iWfKDLTyUs0Siq-DvgXmDf4vdjA';
+        $baseUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
+
+        // Make a request to the Geocoding API
+        $response = Http::get($baseUrl, [
+            'latlng' => "$address",
+            'key' => $apiKey,
+        ]);
+
+        // Decode the JSON response
+        $data = $response->json();
+
+        // Check if the request was successful
+        if ($response->successful() && $data['status'] === 'OK') {
+            // Extract the formatted address from the results
+            $formattedAddress = $data['results'][0]['formatted_address'];
+
+            return $formattedAddress;
+        }
+
+        // Handle the case where the request was not successful
+        return null;
+    }
 
         
 }
