@@ -235,4 +235,30 @@ class SupplierController extends BaseController
         return view('/supplier/stats', compact('salesData', 'uniqueDates','selectedMonth'));
     }
 
+
+        public function updateProfile(Request $request)
+        {
+            // Get the currently authenticated user
+            $user = Auth::user();
+
+            // Update the user's profile data with the values from the submitted form
+            $user->update($request->all());
+
+            // Redirect to the profile page with a success message
+            return redirect()->route('profile')->with('success', 'Profile updated successfully!');
+        }
+        public function deleteAccount()
+        {
+            // Get the currently authenticated user
+            $user = Auth::user();
+
+            // Log the user out
+            Auth::logout();
+            // Delete the user's account and associated data
+            $user->delete();            
+
+            // Redirect to the home page with a success message
+            return redirect('/')->with('success', 'Account deleted successfully!');
+        }
+
 }
