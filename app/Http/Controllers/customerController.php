@@ -185,6 +185,7 @@ class CustomerController extends BaseController
 
         public function updateProfile(Request $request)
         {
+         
             $formFields=$request->validate(
                 [
                     'name'=>'required',
@@ -194,11 +195,11 @@ class CustomerController extends BaseController
                     'picture'=>''
                 ]
                 );
-                
-                if($formFields['picture']){
-                    $profile = $request->file('picture')->store('images', 'public');
+                if ($request->hasFile('picture')) {
+                    $profile = $request->file('picture')->store('uploads', 'public');
                     $formFields['picture'] = $profile;
                 }
+                
                 
             // Get the currently authenticated user
             $user = Auth::user();

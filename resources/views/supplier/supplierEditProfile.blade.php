@@ -3,7 +3,8 @@
 <!-- Edit Profile  -->
             <div class="container my-4">
                 <!-- Edit profile form goes here -->
-                <form id="profileEditForm" >
+                <form id="profileEditForm" action="/supplier/profile/edit" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group d-flex flex-column">
                         <label for="editName">Update Profile Photo:</label>
                         <input type="file" id="imageInput" class="mt-2" accept="image/*" name="picture" value="{{$user->picture}}">

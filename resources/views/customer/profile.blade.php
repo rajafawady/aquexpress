@@ -7,8 +7,8 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-4">
-                        <img id="profileImage" src="https://placekitten.com/200/200" alt="User Avatar" class="img-fluid rounded-circle">
+                    <div class="col-md-4 text-center">
+                        <img id="profileImage" src="{{isset($user->picture)?asset('/storage/'.$user->picture) : "https://placekitten.com/200/200"}}" width="70%" alt="User Avatar" class="img-fluid rounded-circle">
                     </div>
                     <div class="col-md-8">
                         <h3 id="profileName">{{$user->name}}</h3>
