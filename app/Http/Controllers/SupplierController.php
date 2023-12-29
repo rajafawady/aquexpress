@@ -260,29 +260,73 @@ class SupplierController extends BaseController
     }
 
 
+       // updating user profile
+
         public function updateProfile(Request $request)
         {
+
+            $formFields=$request->validate(
+                [
+                    'name'=>'required',
+                    'phone'=>'required',
+                    'email'=>['required','email', Rule::unique('users', 'email')],
+                    'password'=>'required | confirmed | min:6',
+                    'address'=>'required',
+                    'picture'=>''
+                ]
+                );
             // Get the currently authenticated user
             $user = Auth::user();
 
             // Update the user's profile data with the values from the submitted form
-            $user->update($request->all());
+            $user->update($formFields);
 
             // Redirect to the profile page with a success message
-            return redirect()->route('profile')->with('success', 'Profile updated successfully!');
+            return redirect()->route('/supplier/profile')->with('message', 'Profile updated successfully!');
         }
-        public function deleteAccount()
+
+
+        public function deleteProfile(Request $request)
         {
-            // Get the currently authenticated user
             $user = Auth::user();
 
-            // Log the user out
-            Auth::logout();
-            // Delete the user's account and associated data
-            $user->delete();            
+            if ($user) {
+                try {
+                    // Use a transaction to ensure atomicity
+                    DB::beginTransaction();
 
-            // Redirect to the home page with a success message
-            return redirect('/')->with('success', 'Account deleted successfully!');
+                    // Log to help debugging
+                    Log::info('Attempting to delete user: ' . $user->id);
+
+                    // Delete related records in autoorders table
+                    $user->autoOrders()->delete();
+
+                    // Delete related records in orders table
+                    $user->orders()->delete();
+
+                    // Delete the user
+                    $user->delete();
+                    
+                    // Logout the user
+                    Auth::logout();
+
+                    // Clear the user's session data
+                    Session::flush();
+
+                    // Commit the transaction
+                    DB::commit();
+
+                    return redirect('/supplier/login')->with('message', 'Account deleted successfully.');
+                } catch (\Exception $e) {
+                    // An error occurred, rollback the transaction
+                    DB::rollback();
+
+                    return back()->with('message', 'Error deleting account. Please try again.');
+                }
+            }
+
+            return back()->with('message', 'User not found.');
         }
+
 
 }
