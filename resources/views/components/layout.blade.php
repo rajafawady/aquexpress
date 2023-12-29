@@ -29,7 +29,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #352f44;">
           <div class="container-fluid justify-content-between align-items-center">
-              <a class="navbar-brand w-25" href="#">
+              <a class="navbar-brand w-25" href="/supplier">
                   <img src="{{asset("/images/logo/transparent_white.png")}}" width="25%" alt="logo">
               </a>
 

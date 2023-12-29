@@ -53,8 +53,8 @@
                 <!-- Address -->
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <textarea class="form-control" id="address" rows="3" placeholder="Enter Address"
-                        name="address"></textarea>
+                    <input type="hidden" name="address" id="address">
+                    <x-googlemap />
                     @error('address')
                   <p class="text-danger text-lg mt-1">{{$message}}</p>
                   @enderror
