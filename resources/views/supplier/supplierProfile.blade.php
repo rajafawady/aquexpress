@@ -53,10 +53,7 @@
                             <label for="editPhone">Phone:</label>
                             <input type="tel" class="form-control" id="editPhone" value="123-456-7890">
                         </div>
-                        <div class="form-group">
-                            <label for="editLocation">Location:</label>
-                            <input type="text" class="form-control" id="editLocation" value="City, Country">
-                        </div>
+                      
                         <div class="form-group">
                             <label for="editAddress">Address:</label>
                             <textarea class="form-control" id="editAddress" rows="2"></textarea>
