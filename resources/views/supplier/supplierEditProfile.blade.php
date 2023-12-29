@@ -6,7 +6,7 @@
                 <form id="profileEditForm" >
                     <div class="form-group d-flex flex-column">
                         <label for="editName">Update Profile Photo:</label>
-                        <input type="file" id="imageInput" class="mt-2" accept="image/*" value="{{$user->picture}}">
+                        <input type="file" id="imageInput" class="mt-2" accept="image/*" name="picture" value="{{$user->picture}}">
                     </div>
                     <div class="form-group">
                         <label for="editName">Name:</label>
