@@ -5,7 +5,7 @@
      <div class="container col-md-7">
         <div class="card">
             <div class="card-header text-center" style="background-color: #352f44;">
-                <h2 >Automatic Order Replacement</h2>
+                <h2>Automatic Order Replacement</h2>
             </div>
             <div class="card-body">
                 <form method="POST" action="/auto-order">
@@ -45,7 +45,7 @@
 
                     <div class="form-group">
                         <label for="paymentMethod">Payment Method</label>
-                        <select class="custom-select form-control" id="paymentMethod" name="payment_method" required value="{{old('paymentMethod')}}">
+                        <select class="custom-select form-control" id="paymentMethod" name="payment_method" required value="{{old('payment_method')}}">
                             <option value="">Choose...</option>
                             <option value="Online">Online</option>
                             <option value="COD">Cash on Delivery</option>
