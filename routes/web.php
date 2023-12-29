@@ -42,8 +42,9 @@ Route::prefix('supplier')->group(function () {
 
         Route::get('/stats', [SupplierController::class, 'stats']);
 
-            Route::get('/profile', [SupplierController::class, 'showProfile']);
+        Route::get('/profile', [SupplierController::class, 'showProfile']);
         Route::get('/profile/edit', [SupplierController::class, 'showEditProfileForm']);
+        Route::post('/profile/edit', [SupplierController::class, 'updateProfile']);
         Route::post('/profile/delete', [SupplierController::class, 'deleteProfile']);
     });
 });
