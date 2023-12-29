@@ -62,8 +62,8 @@
                                   <i class="fa-regular fa-user"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown" style="background-color: #352f44;">
-                                    <li><a class="dropdown-item text-white" href="/profile">View Profile</a></li>
-                                    <li><a class="dropdown-item text-white" href="/logout">Logout</a></li>
+                                    <li><a class="dropdown-item text-white" href="/supplier/profile">View Profile</a></li>
+                                    <li><a class="dropdown-item text-white" href="/supplier/logout">Logout</a></li>
                                 </ul>
                             </li>
                         
@@ -74,10 +74,10 @@
                     
                       @else
                       <li class="nav-item">
-                        <a class="nav-link {{(isset($active) && $active=='signin')?"active":""}}" href="/login">Sign In</a>
+                        <a class="nav-link {{(isset($active) && $active=='signin')?"active":""}}" href="/supplier/login">Sign In</a>
                         </li>
                         <li class="nav-item {{(isset($active) && $active=='register')?"active":""}}">
-                            <a class="register-anchor nav-link" href="/register">
+                            <a class="register-anchor nav-link" href="/supplier/register">
                                 Register Now
                             </a>
                         </li>
