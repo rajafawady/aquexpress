@@ -7,7 +7,7 @@
                     @csrf
                     <div class="form-group d-flex flex-column">
                         <label for="editName">Update Profile Photo:</label>
-                        <input type="file" id="imageInput" class="mt-2" accept="image/*" value="{{$user->picture}}">
+                        <input type="file" id="picture" class="mt-2" accept="image/*" value="{{$user->picture}}" name="picture">
                         @error('picture')
                             <p class="text-danger text-lg mt-1">{{$message}}</p>
                         @enderror

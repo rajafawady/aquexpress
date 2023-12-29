@@ -52,6 +52,10 @@ if(isset( $address)){
 
             // Function to add a marker to the map
             function addMarker(location) {
+                defaultMarker.setMap(null);
+                markers.forEach(function (marker) {
+                    marker.setMap(null);
+                });
                 var marker = new google.maps.Marker({
                     map: map,
                     position: location
