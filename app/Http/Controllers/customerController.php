@@ -307,7 +307,7 @@ class CustomerController extends BaseController
             $message->from($validatedData['email'], $validatedData['name']);
         });
 
-        return redirect()->back()->with('success', 'Your message has been sent successfully!');
+        return redirect()->back()->with('message', 'Your message has been sent successfully!');
     }
 
         
