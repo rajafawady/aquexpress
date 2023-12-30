@@ -65,6 +65,7 @@ Route::post('/register', [CustomerController::class, 'createUser']);
 Route::get('/about', [CustomerController::class, 'about']);
 //Route for Contact Us Page
 Route::get('/contact', [CustomerController::class, 'contact']);
+Route::post('/contact', [CustomerController::class, 'sendEmail'])->name('contact.send');
 
 Route::middleware(['auth:web'])->group(function () {
     //Routes for profile

@@ -1,5 +1,5 @@
 body{
-    background-image: url("../images/telephone.png");
+    background-image: url("/images/telephone.png");
     background-blend-mode:lighten;
     background-size: 80px;
     background-color: rgba(0,0,0,0.08);
@@ -21,7 +21,7 @@ body{
     display: flex;
     flex-flow: column;
     justify-content: center;
-    align-items: center;
+   
     color: white;
     flex: 0.5;
     background: #352f44;
@@ -30,7 +30,6 @@ body{
 }
 .contact-child{
     line-height: 20px;
-    text-align: center;
 }
 .contact-child p{
     margin: 0;
@@ -80,15 +79,15 @@ textarea {
     height: 100px;
 }
 
-button {
-    background-color:#352f44 ;
+.submit-button {
+    background-color:#352f44 !important;
     padding: 10px 20px;
     font-size: 1rem;
-    transition: background-color 0.3s;
+    transition: transform 0.8s !important;
 }
 
-button:hover {
-    background-color:#967bb6 ;
+.submit-button:hover {
+    transform: scale(1.1);
 }
 
 @media(max-width:950px) {

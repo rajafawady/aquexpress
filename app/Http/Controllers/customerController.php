@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -290,6 +291,23 @@ class CustomerController extends BaseController
 
         // Handle the case where the request was not successful
         return null;
+    }
+
+    public function sendEmail(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required',
+        ]);
+
+        // Send mail
+        Mail::send('emails.contact', ['data' => $validatedData], function ($message) use ($validatedData) {
+            $message->to('rajafawady@gmail.com', 'Fawad')->subject('New Contact Form Submission');
+            $message->from($validatedData['email'], $validatedData['name']);
+        });
+
+        return redirect()->back()->with('success', 'Your message has been sent successfully!');
     }
 
         
