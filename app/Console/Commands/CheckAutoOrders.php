@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Models\AutoOrder;
+use App\Models\Autoorder;
 use App\Models\Order;
 
 class CheckAutoOrders extends Command
@@ -14,7 +14,7 @@ class CheckAutoOrders extends Command
     public function handle()
     {
         // Get auto orders where DATE_ADD(updated_at, INTERVAL period DAY) equals the current date
-        $autoOrders = AutoOrder::whereRaw('DATE(DATE_ADD(updated_at, INTERVAL period DAY)) = CURDATE()')->get();
+        $autoOrders = Autoorder::whereRaw('DATE(DATE_ADD(updated_at, INTERVAL period DAY)) = CURDATE()')->get();
 
         foreach ($autoOrders as $autoOrder) {
             $orderTime = $autoOrder->time;
